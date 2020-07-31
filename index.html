@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
+
+<head>
+    <title>Main page</title>
+    <link rel="stylesheet" type="text/css" href="node_modules\materialize-css\dist\css\materialize.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="windowbtn.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body style="background-color: #121212cd">
+    <nav class="titlebar" style="height: 56px">
+        <ul class="left titlebar-buttons">
+            <li><a onClick="menu()"><i class="material-icons">menu</i></a></li>
+        </ul>
+        <ul class="right titlebar-buttons">
+            <li><a><i class="material-icons">search</i></a></li>
+            <li><a onClick="minimizeWindow()"><i class="material-icons">remove</i></a></li>
+            <li><a onClick="maximizeWindow()"><i class="material-icons">crop_square</i></a></li>
+            <li><a onClick="closeWindow()"><i class="material-icons">close</i></a></li>
+        </ul>
+        </div>
+    </nav>
+
+</body>
+
 </html>

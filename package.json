@@ -20,6 +20,8 @@
     "electron": "^9.1.2"
   },
   "dependencies": {
-    "electron-store": "^6.0.0"
+    "electron-store": "^6.0.0",
+    "materialize-css": "^1.0.0-rc.2",
+    "office-ui-fabric-core": "^11.0.0"
   }
 }

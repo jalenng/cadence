@@ -1,10 +1,14 @@
 const { app, BrowserWindow } = require('electron')
+const fs = require('fs');
+
+let progress = 0;
 
 function createWindow () {
   // Create the browser window.
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+  let win = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    frame: false,
     webPreferences: {
       nodeIntegration: true
     }
@@ -13,9 +17,27 @@ function createWindow () {
   // and load the index.html of the app.
   win.loadFile('index.html')
 
+  fs.open()
+
   // Open the DevTools.
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
+  setInterval(() => {
+    win.setProgressBar(progress);
+    progress++;
+    console.log("T"); 
+  }, 1);
 }
+
+app.setUserTasks([
+    {
+      program: process.execPath,
+      arguments: '--new-window',
+      iconPath: process.execPath,
+      iconIndex: 0,
+      title: 'New Window',
+      description: 'Create a new window'
+    }
+  ])
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

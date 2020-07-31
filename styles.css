@@ -1,0 +1,8 @@
+.titlebar {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+}
+
+.titlebar-buttons {
+    -webkit-app-region: none;
+}
