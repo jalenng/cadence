@@ -3,26 +3,63 @@
 
 <head>
     <title>Main page</title>
-    <link rel="stylesheet" type="text/css" href="node_modules\materialize-css\dist\css\materialize.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules\materialize-css\dist\css\materialize.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <script src="windowbtn.js"></script>
-    <script src="main.js"></script>
+    <script src="musicmodel.js"></script>
 </head>
 
-<body style="background-color: #121212cd">
-    <nav class="titlebar" style="height: 56px">
+<body>
+    <nav id="titlebar" class="z-depth-5">
         <ul class="left titlebar-buttons">
             <li><a onClick="menu()"><i class="material-icons">menu</i></a></li>
         </ul>
-        <ul class="right titlebar-buttons">
-            <li><a><i class="material-icons">search</i></a></li>
-            <li><a onClick="minimizeWindow()"><i class="material-icons">remove</i></a></li>
-            <li><a onClick="maximizeWindow()"><i class="material-icons">crop_square</i></a></li>
-            <li><a onClick="closeWindow()"><i class="material-icons">close</i></a></li>
-        </ul>
+        <div id="titlebar-search" class="input-field">
+            <input placeholder="Search" type="text" id="autocomplete-input" class="autocomplete">
+            <i class="material-icons prefix">search</i>
         </div>
+        <ul class="right titlebar-buttons">
+            <li><a onClick="minimizeWindow()"><i class="material-icons">remove</i></a></li>
+            <li><a onClick="maximizeWindow()"><i id="maximize-button-icon" class="material-icons">fullscreen</i></a></li>
+            <li><a onClick="closeWindow()"><i class="material-icons">close</i></a></li> 
+        </ul>
     </nav>
+
+    <main id="mainview">
+        <iframe src="view.html"></iframe>
+    </main>
+
+    <footer>
+        <nav id="controls" class="z-depth-5">
+            <ul>
+                <li>
+                    <form action="#">
+                        <p class="range-field">
+                            <input onChange="MusicModel.seek()" type="range" id="seek-slider" min="0" max="0" />
+                        </p>
+                    </form>
+                </li>
+                <li>
+                    <a onClick="MusicModel.skipPrevious()"><i class="material-icons">skip_previous</i></a>
+                </li>
+                <li>
+                    <a onClick="MusicModel.playPause()" class="btn-floating pulse"><i id="play-pause-icon" class="material-icons left">play_arrow</i></a>
+                </li>
+                <li>
+                    <a onClick="MusicModel.skipNext()"><i class="material-icons">skip_next</i></a>
+                </li>
+                <li>
+                    <form action="#">
+                        <p class="range-field">
+                            <input onInput="MusicModel.setVolume()" type="range" id="volume-slider" min="0" max="100" />
+                        </p>
+                    </form>
+                </li>
+            </ul>
+            </nav>
+    </footer>
 
 </body>
 

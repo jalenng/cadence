@@ -1,8 +1,81 @@
-.titlebar {
-  -webkit-user-select: none;
-  -webkit-app-region: drag;
+body {
+	background-color: #121212;
+	color: #ffffff;
+	font-family: 'Titillium Web',sans-serif;
+}
+
+body, html {width: 100%; height: 100%; margin: 0; padding: 0}	
+
+#titlebar {
+	-webkit-user-select: none;
+	-webkit-app-region: drag;
+	backdrop-filter: blur(5px);
+	background-color: #808080ab;
+	position: fixed;	
+	line-height: 56px;
+	height: 56px;
 }
 
 .titlebar-buttons {
     -webkit-app-region: none;
+}
+
+#mainview {
+	width: 100%;
+	height: 100%;
+}
+
+#mainview iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+#titlebar-search {
+	-webkit-app-region: none;
+	position: fixed;
+	margin: 0px;
+	display: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 360px;
+	height: 56px;
+}
+
+#titlebar-search input{
+	width: 336px;
+	height: 50%;
+	margin: 0px;
+	padding: 2px 0px 2px 40px;
+	background-color: #ffffff;
+	border-radius: 4px;
+}
+
+#titlebar-search i{
+	color: #000000;
+	font-size: 24px;
+	padding-left: 8px;
+	width: 24px;
+	top: 0px;
+}
+
+#controls {
+	line-height: 56px;
+	backdrop-filter: blur(5px);
+	background-color: #808080ab;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 56px;
+	align-items: end;
+}
+
+#controls ul {
+	float: right;
+	height: 84px;
+}
+
+#controls ul li {
+	display: inline;
 }

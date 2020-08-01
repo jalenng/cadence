@@ -1,0 +1,49 @@
+body {
+	background-color: #121212;
+	color: #ffffff;
+    font-family: 'Titillium Web',sans-serif;
+    padding: 56px 0px
+}
+
+.container {
+    margin: auto;
+    max-width: 1200px;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+/* scroll bars */
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #f1f1f1;
+    border-radius: 2px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #888;
+}
+
+::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 56px; 
+}
+
+::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 56px;    
+}
