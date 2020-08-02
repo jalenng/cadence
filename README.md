@@ -1,1 +1,2 @@
-# test-electron-app
+# AZCadence
+A music player built with Electron.
