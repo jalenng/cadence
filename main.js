@@ -9,6 +9,7 @@ function createWindow() {
 		minWidth: 720,
 		backgroundColor: '#2e2c29',
 		frame: false,
+		enableRemoteModule: true,
 		webPreferences: {
 			nodeIntegration: true
 		}
@@ -19,22 +20,6 @@ function createWindow() {
 
 	// Open the DevTools.
 	win.webContents.openDevTools()
-
-	// update maximize/restore button when window maximizes/restores
-	win.on('maximize', () => {
-		console.log("Maximized");
-	})
-
-	win.on('unmaximize', () => {
-		console.log("Maximized");
-	})
-
-	// shows window gracefully
-	win.once('ready-to-show', () => {
-		win.show()
-	})
-
-	fs.open()
 }
 
 app.on('ready', () => {
@@ -70,3 +55,4 @@ app.on('activate', () => {
 		createWindow()
 	}
 })
+

@@ -1,26 +1,22 @@
-const remote = require('electron').remote;
+const currentWindow = require('electron').remote.getCurrentWindow();
 const Menu = require('electron').Menu;
 
 function minimizeWindow() {
-	var win = remote.getCurrentWindow();
-	win.minimize();
+	currentWindow.minimize();
 }
 
 function maximizeWindow() {
-	var win = remote.getCurrentWindow();
-	win.isMaximized() ? win.unmaximize() : win.maximize();
+	currentWindow.isMaximized() ? currentWindow.unmaximize() : currentWindow.maximize();
 	updateMaximizeButtonIcon();
 }
 
 function updateMaximizeButtonIcon() {
-	var win = remote.getCurrentWindow();
 	document.getElementById("maximize-button-icon").innerHTML = 
-		win.isMaximized() ? "fullscreen_exit" : "fullscreen";
+		currentWindow.isMaximized() ? "fullscreen_exit" : "fullscreen";
 }
 
 function closeWindow() {
-	var win = remote.getCurrentWindow();
-	win.close();
+	currentWindow.close();
 }
 
 function menu() {
@@ -35,6 +31,5 @@ function menu() {
 		}
 	])
 	Menu.setApplicationMenu(menu);
-	var win = remote.getCurrentWindow();
-	Menu.getApplicationMenu().popup(win);
+	Menu.getApplicationMenu().popup(currentWindow);
 }

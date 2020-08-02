@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "electron-store": "^6.0.0",
+    "jsmediatags": "^3.9.3",
     "materialize-css": "^1.0.0-rc.2"
   }
 }

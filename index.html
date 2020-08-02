@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav id="titlebar" class="z-depth-5">
+    <nav id="titlebar" class="z-depth-4">
         <ul class="left titlebar-buttons">
             <li><a onClick="menu()"><i class="material-icons">menu</i></a></li>
         </ul>
@@ -22,8 +22,9 @@
         </div>
         <ul class="right titlebar-buttons">
             <li><a onClick="minimizeWindow()"><i class="material-icons">remove</i></a></li>
-            <li><a onClick="maximizeWindow()"><i id="maximize-button-icon" class="material-icons">fullscreen</i></a></li>
-            <li><a onClick="closeWindow()"><i class="material-icons">close</i></a></li> 
+            <li><a onClick="maximizeWindow()"><i id="maximize-button-icon" class="material-icons">fullscreen</i></a>
+            </li>
+            <li><a onClick="closeWindow()"><i class="material-icons">close</i></a></li>
         </ul>
     </nav>
 
@@ -32,33 +33,65 @@
     </main>
 
     <footer>
-        <nav id="controls" class="z-depth-5">
+        <nav id="bottom-panel" class="z-depth-4">
             <ul>
                 <li>
-                    <form action="#">
-                        <p class="range-field">
-                            <input onChange="MusicModel.seek()" type="range" id="seek-slider" min="0" max="0" />
-                        </p>
-                    </form>
+                    <!-- now playing information -->
+                    <ul id="now-playing">
+                        <li>
+                            <img id="now-playing-album-art" class="z-depth-5">
+                        </li>
+                        <li>
+                            <div id="now-playing-song-title">Title</div>
+                        </li>
+                        <li>•</li>
+                        <li>
+                            <div id="now-playing-artist">Artist</div>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a onClick="MusicModel.skipPrevious()"><i class="material-icons">skip_previous</i></a>
-                </li>
-                <li>
-                    <a onClick="MusicModel.playPause()" class="btn-floating pulse"><i id="play-pause-icon" class="material-icons left">play_arrow</i></a>
-                </li>
-                <li>
-                    <a onClick="MusicModel.skipNext()"><i class="material-icons">skip_next</i></a>
-                </li>
-                <li>
-                    <form action="#">
-                        <p class="range-field">
-                            <input onInput="MusicModel.setVolume()" type="range" id="volume-slider" min="0" max="100" />
-                        </p>
-                    </form>
-                </li>
+
+                <ul id="media-controls">
+                    <li>
+                        <!-- seeker -->
+                        <ul>
+                            <li>
+                                <div id="seek-current-time"></div>
+                            </li>
+                            <li>
+                                <form action="#">
+                                    <div class="range-field">
+                                        <input onInput="MusicModel.seek()" type="range" id="seek-slider" min="0"
+                                            max="0" />
+                                    </div>
+                                </form>
+                            </li>
+                            <li>
+                                <div id="seek-duration"></div>
+                        </ul>
+                    </li>
+                    <li>
+                        <!-- prev, play/pause, and next -->
+                        <ul>
+                            <li><a onClick="MusicModel.skipPrevious()"><i class="material-icons">skip_previous</i></a>
+                            </li>
+                            <li><a onClick="MusicModel.playPause()" class="btn-floating pulse"><i id="play-pause-icon"
+                                        class="material-icons left">play_arrow</i></a></li>
+                            <li><a onClick="MusicModel.skipNext()"><i class="material-icons">skip_next</i></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <!-- volume slider -->
+                        <form action="#">
+                            <div class="range-field">
+                                <input onInput="MusicModel.setVolume()" type="range" id="volume-slider" min="0"
+                                    max="100" />
+                            </div>
+                        </form>
+                    </li>
+                </ul>
             </ul>
-            </nav>
+        </nav>
     </footer>
 
 </body>

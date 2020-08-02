@@ -1,6 +1,12 @@
-var audioElement = document.createElement("AUDIO");
-audioElement.addEventListener("play", () => {MusicModel.updatePlayPauseButtonIcon()});
-audioElement.addEventListener("pause", () => {MusicModel.updatePlayPauseButtonIcon()});
+const MediaControls = require('./mediacontrols.js');
+
+const audioElement = document.createElement("AUDIO");
+
+audioElement.addEventListener("play", () => {MediaControls.update()});
+audioElement.addEventListener("pause", () => {MediaControls.update()});
+audioElement.addEventListener("ended", () => {MusicModel.skipNext()});
+
+var seekUpdateInterval;
 
 class MusicModel {
     static playPause() {
@@ -11,45 +17,21 @@ class MusicModel {
         } else {
             audioElement.pause();
         }
-        this.updatePlayPauseButtonIcon();
+        //audioElement's play/pause action listeners will update the icon
     }
-
-    static updatePlayPauseButtonIcon() {
-        document.getElementById("play-pause-icon").innerHTML = 
-            audioElement.paused ? "play_arrow" : "pause";
-
-        var seekUpdateInterval;
-        if (audioElement.paused) {
-            clearInterval(seekUpdateInterval);
-        }
-        else {
-            seekUpdateInterval = setInterval(this.updateSeekSlider, 10)
-        }
-    }
-
     static skipPrevious() {
         console.log("skip previous");
     }
-
     static skipNext() {
         console.log("skip next");
     }
-
     static setVolume() {
         audioElement.volume = document.getElementById("volume-slider").value / 100;
-        this.updateVolumeSliderValue();
-    }
-
-    static updateVolumeSliderValue() {
-        document.getElementById("volume-slider").value = audioElement.volume * 100;
+        MediaControls.update();
     }
 
     static seek() {
         audioElement.currentTime  = document.getElementById("seek-slider").value;
-    }
-
-    static updateSeekSlider() {
-        document.getElementById("seek-slider").max = audioElement.duration;
-        document.getElementById("seek-slider").value = audioElement.currentTime;
+        MediaControls.update()
     }
 }
