@@ -1,6 +1,6 @@
-const MediaControls = require('./mediacontrols.js');
+var MediaControls = require('./mediacontrols.js');
 
-const audioElement = document.createElement("AUDIO");
+var audioElement = document.createElement("AUDIO");
 
 audioElement.addEventListener("play", () => {MediaControls.update()});
 audioElement.addEventListener("pause", () => {MediaControls.update()});
@@ -11,8 +11,6 @@ var seekUpdateInterval;
 class MusicModel {
     static playPause() {
         if (audioElement.paused) {
-            audioElement.setAttribute("src", "Sunset.mp3");
-            audioElement.load();
             audioElement.play();
         } else {
             audioElement.pause();
@@ -25,13 +23,22 @@ class MusicModel {
     static skipNext() {
         console.log("skip next");
     }
+    static toggleMute() {
+        audioElement.muted = !audioElement.muted;
+        MediaControls.update();
+    }
     static setVolume() {
         audioElement.volume = document.getElementById("volume-slider").value / 100;
         MediaControls.update();
     }
-
     static seek() {
         audioElement.currentTime  = document.getElementById("seek-slider").value;
         MediaControls.update()
+    }
+    static toggleShuffle() {
+        console.log("shuffle");
+    }
+    static toggleRepeat() {
+        console.log("repeat");
     }
 }

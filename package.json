@@ -1,23 +1,24 @@
 {
-  "name": "my-electron-app",
-  "version": "1.0.0",
-  "description": "",
+  "name": "AZCadence",
+  "version": "0.1.0",
+  "description": "A music player built with Electron",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jalenng/test-electron-app.git"
+    "url": "git+https://github.com/jalenng/AZCadence.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jalenng/test-electron-app/issues"
+    "url": "https://github.com/jalenng/AZCadence/issues"
   },
-  "homepage": "https://github.com/jalenng/test-electron-app#readme",
+  "homepage": "https://github.com/jalenng/AZCadence#readme",
   "devDependencies": {
-    "electron": "^9.1.2"
+    "electron": "^9.1.2",
+    "electron-builder": "^22.8.0"
   },
   "dependencies": {
     "electron-store": "^6.0.0",

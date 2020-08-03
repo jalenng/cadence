@@ -1,6 +1,8 @@
-const currentWindow = require('electron').remote.getCurrentWindow();
-const jsmediatags = require("jsmediatags");
-const fs = require('fs');
+var currentWindow = require('electron').remote.getCurrentWindow();
+var jsmediatags = require("jsmediatags");
+var fs = require('fs');
+
+var srcOnLastUpdate;
 
 class MediaControls {
     static update() {
@@ -16,18 +18,27 @@ class MediaControls {
             seekUpdateInterval = setInterval(this.updateSeeker, 10)
         }
 
+        //update volume button
+        document.getElementById("volume-button-icon").innerHTML = 
+            audioElement.muted ? "volume_off" :
+            audioElement.volume == 0 ? "volume_mute" :
+            audioElement.volume < 0.5 ? "volume_down" : "volume_up";
+
         //update volume slider
         document.getElementById("volume-slider").value = audioElement.volume * 100;
 
         //fetching song metadata
-        jsmediatags.read(audioElement.currentSrc.slice(8), { //slice to remove "file:///" header  
-            onSuccess: function (tag) {
-                MediaControls.updateNowPlayingMetadata(tag);
-            },
-            onError: function (error) {
-                console.log('Error loading metadata: ', error.type, error.info);
-            }
-        });
+        if (srcOnLastUpdate != audioElement.currentSrc) {
+            jsmediatags.read(audioElement.src.slice(8), { //slice to remove "file:///" header  
+                onSuccess: function (tag) {
+                    MediaControls.updateNowPlayingMetadata(tag);
+                },
+                onError: function (error) {
+                    console.log('Error loading metadata: ', error.type, error.info);
+                }
+            });
+            srcOnLastUpdate = audioElement.currentSrc;
+        }
     }
 
     static updateSeeker() {
