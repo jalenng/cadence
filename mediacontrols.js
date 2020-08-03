@@ -67,12 +67,19 @@ class MediaControls {
     static updateNowPlayingMetadata(tag, path) {
         var tags = tag.tags;
 
-        //update song title, artist name, and window title
+        //update song title, artist name, and window title 
+        //display file path if title does not exist
         var nowPlayingText = path;
         var windowTitle = path;
-        if (tags.title) {
-            nowPlayingText = "<b>" + tags.title + "</b> • " + tags.artist;
-            windowTitle = tags.title + " • " + tags.artist;
+        if (tags.title) { //add title if it exists
+            nowPlayingText = "<b>" + tags.title;
+            windowTitle = tags.title; 
+
+            //add artist
+            if (tags.artist) {
+                nowPlayingText += "</b> • " + tags.artist;
+                windowTitle += " • " + tags.artist;
+            }
         }        
         document.getElementById("now-playing-text").innerHTML = nowPlayingText;
         currentWindow.title = windowTitle;
