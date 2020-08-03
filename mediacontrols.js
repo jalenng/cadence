@@ -1,5 +1,6 @@
 var currentWindow = require('electron').remote.getCurrentWindow();
 var jsmediatags = require("jsmediatags");
+var url = require('url');
 var fs = require('fs');
 
 var srcOnLastUpdate;
@@ -10,6 +11,9 @@ class MediaControls {
         document.getElementById("play-pause-icon").innerHTML = 
             audioElement.paused  ? "play_arrow" : "pause";
 
+        //update seeker once
+        this.updateSeeker();
+        
         //set or clear continuous updating of seeker
         if (audioElement.paused) {
             clearInterval(seekUpdateInterval);
@@ -28,13 +32,14 @@ class MediaControls {
         document.getElementById("volume-slider").value = audioElement.volume * 100;
 
         //fetching song metadata
-        if (srcOnLastUpdate != audioElement.currentSrc) {
-            jsmediatags.read(audioElement.src.slice(8), { //slice to remove "file:///" header  
+        var path = url.fileURLToPath(audioElement.src.toString().replace(/\//g, "/"));
+        if (srcOnLastUpdate != audioElement.src) {
+            jsmediatags.read(path, { //slice to remove "file:///" header  
                 onSuccess: function (tag) {
-                    MediaControls.updateNowPlayingMetadata(tag);
+                    MediaControls.updateNowPlayingMetadata(tag, path);
                 },
                 onError: function (error) {
-                    console.log('Error loading metadata: ', error.type, error.info);
+                    console.log('Error loading metadata: ' + path);
                 }
             });
             srcOnLastUpdate = audioElement.currentSrc;
@@ -59,37 +64,39 @@ class MediaControls {
         document.getElementById("seek-duration").innerHTML = durationMinutes + ":" + paddedDurationSeconds;
     }
 
-    static updateNowPlayingMetadata(tag) {
+    static updateNowPlayingMetadata(tag, path) {
         var tags = tag.tags;
 
-        //update song title and artist name
-        document.getElementById("now-playing-song-title").innerHTML = tags.title;
-        document.getElementById("now-playing-artist").innerHTML = tags.artist;
-
-        //update window title
-        var windowTitle = tags.title + " - " + tags.artist;
+        //update song title, artist name, and window title
+        var nowPlayingText = path;
+        var windowTitle = path;
+        if (tags.title) {
+            nowPlayingText = "<b>" + tags.title + "</b> • " + tags.artist;
+            windowTitle = tags.title + " • " + tags.artist;
+        }        
+        document.getElementById("now-playing-text").innerHTML = nowPlayingText;
         currentWindow.title = windowTitle;
 
         //deals with album art
-        var base64DataUri;
+        var base64DataUri = "./media/AlbumDefault.png";
         var base64String = "";
         if (tags.picture) {
             for (var i = 0; i < tags.picture.data.length; i++) {
                 base64String += String.fromCharCode(tags.picture.data[i]);
             }
+            base64DataUri = "data:" + tags.picture.format + ";base64," + window.btoa(base64String);
         }
 
         //update now playing album art
-        base64DataUri = "data:" + tags.picture.format + ";base64," + window.btoa(base64String);                
         document.getElementById('now-playing-album-art').setAttribute('src', base64DataUri);
 
         //update media session
         navigator.mediaSession.metadata = new MediaMetadata({
-            title: tags.title,
-            artist: tags.artist,
+            title: tags.title ? tags.title : path,
+            artist: tags.title ? tags.artist : "",
             album: tags.album,
             artwork: [
-                { src: this.base64ToDataUri(base64DataUri, 512, 512), sizes: '512x512', type: 'image/png' }
+                { src: this.base64ToDataUri(base64DataUri, 256, 256), sizes: '256x256', type: 'image/png' }
             ]
         });
     }

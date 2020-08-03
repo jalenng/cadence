@@ -41,4 +41,12 @@ class MusicModel {
     static toggleRepeat() {
         console.log("repeat");
     }
+    static load(src) {
+        audioElement.src = src;
+        audioElement.load();
+        audioElement.play();
+        MediaControls.update();
+    }
 }
+
+module.exports = MusicModel;
