@@ -44,6 +44,29 @@ class MediaControls {
             });
             srcOnLastUpdate = audioElement.currentSrc;
         }
+
+        // Configure Windows taskbar thumbnail toolbar
+        var skipPreviousThumbbarButton = {
+            tooltip: 'Previous',
+            icon: "media/thumbbar/skip_previous.png",
+            click () { MusicModel.skipPrevious() }
+        }
+        var playPauseThumbbarButton = {
+            tooltip: 'Play',
+            icon: audioElement.paused ? "media/thumbbar/play_arrow.png" : "media/thumbbar/pause.png",
+            click () { MusicModel.playPause()  }
+        }
+        var skipNextThumbbarButton =  {
+            tooltip: 'Next',
+            icon: "media/thumbbar/skip_next.png",
+            click () { MusicModel.skipNext() }
+        }
+        var thumbbarButtons = [
+            skipPreviousThumbbarButton, 
+            playPauseThumbbarButton, 
+            skipNextThumbbarButton
+        ]
+        currentWindow.setThumbarButtons(thumbbarButtons);
     }
 
     static updateSeeker() {

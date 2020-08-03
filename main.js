@@ -1,4 +1,4 @@
-const {app, BrowserWindow, BrowserView} = require('electron');
+const {app, path, BrowserWindow, BrowserView} = require('electron');
 const fs = require('fs');
 
 function createWindow() {
@@ -36,6 +36,7 @@ function createViews() {
 	console.log(BrowserView.getAllViews());
 }
 
+// Set up Windows taskbar jump list
 app.setUserTasks([
 	{
 		program: process.execPath,
