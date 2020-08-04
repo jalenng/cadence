@@ -14,7 +14,8 @@ const menuTemplate = [
 			{role: 'zoomin'},
 			{role: 'zoomout'},
 			{type: 'separator'},
-			{role: 'togglefullscreen'}
+			{role: 'togglefullscreen'},
+			{role: 'reload'},
 		]
 	},
 	{
@@ -60,10 +61,7 @@ const menuTemplate = [
 	{
 		role: 'help',
 		submenu: [
-			{
-			label: 'Learn More',
-			click () { require('electron').shell.openExternal('http://electron.atom.io') }
-			},
+			{role: 'about'},
 			{label: 'Check for Updates'}
 		]
 	}

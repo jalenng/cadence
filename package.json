@@ -21,6 +21,7 @@
     "electron-builder": "^22.8.0"
   },
   "dependencies": {
+    "collections": "^5.1.11",
     "electron-store": "^6.0.0",
     "jsmediatags": "^3.9.3",
     "materialize-css": "^1.0.0-rc.2"
