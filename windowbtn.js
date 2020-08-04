@@ -1,3 +1,4 @@
+const Menu = require('electron').remote.Menu;
 const currentWindow = require('electron').remote.getCurrentWindow();
 const dialog = require('electron').remote.dialog;
 
@@ -18,9 +19,13 @@ function updateMaximizeButtonIcon() {
 function closeWindow() {
 	currentWindow.close();
 }
+
 function menu() {
-	console.log("menu");
+	Menu.getApplicationMenu().popup({
+		window: currentWindow,
+	});
 }
+
 function openFile() {
 	var options = {
 		// See place holder 1 in above image

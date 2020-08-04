@@ -17,23 +17,10 @@ function createWindow() {
 	})
 
 	win.loadFile('index.html');
-
+	
 	// Open the DevTools.
 	win.webContents.openDevTools();
 
-	createViews();
-}
-
-function createViews() {
-	let view = new BrowserView()
-	win.setBrowserView(view)
-	view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
-	view.setAutoResize({
-		width: true,
-		height: true,
-	});
-	view.webContents.loadURL('index.html');
-	console.log(BrowserView.getAllViews());
 }
 
 // Set up Windows taskbar jump list

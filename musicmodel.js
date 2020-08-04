@@ -7,13 +7,16 @@ audioElement.addEventListener("pause", () => {MediaControls.update()});
 audioElement.addEventListener("ended", () => {MusicModel.skipNext()});
 
 var seekUpdateInterval;
+var playPromise;
 
 class MusicModel {
     static playPause() {
         if (audioElement.paused) {
-            audioElement.play();
-        } else {
-            audioElement.pause();
+            playPromise = audioElement.play();
+        } else if (playPromise !== undefined) {
+            playPromise.then(() => {
+                audioElement.pause();
+            }) 
         }
         //audioElement's play/pause action listeners will update the icon
     }
@@ -29,6 +32,10 @@ class MusicModel {
     }
     static setVolume() {
         audioElement.volume = document.getElementById("volume-slider").value / 100;
+        MediaControls.update();
+    }
+    static setVolumeBy(num) {
+        audioElement.volume += num;
         MediaControls.update();
     }
     static seek() {
