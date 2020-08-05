@@ -2,16 +2,36 @@
 <html>
 
 <head>
-    <title>Main page</title>
+    <title>Home View</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
     <link rel="stylesheet" href="node_modules\materialize-css\dist\css\materialize.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="viewstyles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
+    <div class="main-container">
+        <div class="container">
+            <h2 id="main-header"></h2>
+            <div id="splash-text"></div>
+        </div>
 
-    <h1>Hello!</h1>
-    <h2>Let's play a song!</h2>
+        <div class="container grid">
+
+            <script>
+                var html = "<a><div class='tile-frame z-depth-1'><img class='tile-img' src='media/AlbumDefault.png'></div></a>";
+                for (var i = 0; i < 100; i++) {
+                    document.write(html);
+                }
+
+            </script>
+    
+        </div>      
+
+    </div>
+
+    <script src="homeview.js"></script>
 
 </body>
 
