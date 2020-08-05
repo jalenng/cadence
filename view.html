@@ -3,8 +3,9 @@
 
 <head>
     <title>Home View</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" media="screen">
     <link rel="stylesheet" href="node_modules\materialize-css\dist\css\materialize.css">
+    <link rel="stylesheet" href="node_modules\flickity\dist\flickity.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="viewstyles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,20 +18,33 @@
             <div id="splash-text"></div>
         </div>
 
-        <div class="container grid">
+        <div class="container">
+            <h6>Recently played</h6>
+            <div class="main-carousel" data-flickity='{"pageDots": false, "freeScroll": true, "cellAlign": "left", "contain": true, "prevNextButtons": false}'>
 
-            <script>
-                var html = "<a><div class='tile-frame z-depth-1'><img class='tile-img' src='media/AlbumDefault.png'></div></a>";
-                for (var i = 0; i < 100; i++) {
-                    document.write(html);
-                }
+                <script>
+                    for (var i = 0; i < 20; i++) {document.write("<div class=\"carousel-cell\"><div class=\"tile-frame\"><img class=\"tile-img\" src=\"media/AlbumDefault.png\"></div><div>Album</div></div>");
+                    }
+                </script>
+                
+            </div>      
+        </div>
 
-            </script>
-    
-        </div>      
+        <div class="container">
+            <h6>Most played</h6>
+            <div class="main-carousel" data-flickity='{"pageDots": false, "freeScroll": true, "cellAlign": "left", "contain": true, "prevNextButtons": false}'>
+                
+                <script>
+                    for (var i = 0; i < 20; i++) {document.write("<div class=\"carousel-cell\"><div class=\"tile-frame\"><img class=\"tile-img\" src=\"media/AlbumDefault.png\"></div><div>Album</div></div>");
+                    }
+                </script>
 
+            </div> 
+        </div>
+            
     </div>
 
+    <script src="node_modules\flickity\dist\flickity.pkgd.min.js"></script>
     <script src="homeview.js"></script>
 
 </body>
