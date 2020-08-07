@@ -18,9 +18,11 @@
   "homepage": "https://github.com/jalenng/AZCadence#readme",
   "devDependencies": {
     "electron": "^9.1.2",
-    "electron-builder": "^22.8.0"
+    "electron-builder": "^22.8.0",
+    "electron-reloader": "^1.0.1"
   },
   "dependencies": {
+    "backbone": "^1.4.0",
     "collections": "^5.1.11",
     "electron-store": "^6.0.0",
     "flickity": "^2.2.1",
