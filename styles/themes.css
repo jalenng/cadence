@@ -1,0 +1,54 @@
+.theme-dark {
+    --background-color: #121212;
+    --foreground-color: #ffffff;
+
+    --primary-color: #555555ab;
+    --tile-frame-color: #ffffff57;
+    
+    --search-bar-color: #ffffff;
+    --search-icon-color: #121212;
+}
+
+.theme-light {
+    --background-color: #ffffff;
+    --foreground-color: #000000;
+
+    --primary-color: #C0C0C0ab;
+    --tile-frame-color: #55555557;
+
+    --search-bar-color: #ffffff;
+    --search-icon-color: #121212;
+}
+
+.theme-platinum {
+    --background-color: #3a3a3a;
+    --foreground-color: #ffffff;
+
+    --primary-color: #ffffffab;
+    --tile-frame-color: #ffffff57;
+
+    --search-bar-color: #3a3a3a;
+    --search-icon-color: #ffffff;
+}
+
+.theme-dark-red {
+    --background-color: #310000;
+    --foreground-color: #ffffff;
+
+    --primary-color: #5c4a4aab;
+    --tile-frame-color: #ffffff80;
+    
+    --search-bar-color: #ffffff;
+    --search-icon-color: #121212;
+}
+
+.theme-gore-eyesore {
+    --background-color: #3935ff;
+    --foreground-color: #ff3c8d;
+
+    --primary-color: #6cffa9;
+    --tile-frame-color: #f0ff65;
+    
+    --search-bar-color: #3ea9ca;
+    --search-icon-color: #ff0000;
+}

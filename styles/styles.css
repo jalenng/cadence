@@ -1,20 +1,22 @@
-@import url('node_modules/material-design-icons-iconfont/dist/material-design-icons.css');
-
-html {
-	color: #ffffff;	
-}
+@import url('../node_modules/material-design-icons-iconfont/dist/material-design-icons.css');
+@import url('themes.css');
 
 body {
-	background-color: #121212;
+	background-color: var(--background-color);
 	user-select: none;
 	font-weight: normal;
 	font-size: 16px;
 	letter-spacing: 0.5;
+	color: var(--foreground-color);	
+}
+
+ul {
+	color: var(--foreground-color);
 }
 
 a {
 	text-decoration: none;
-	color: #ffffff;
+	color: var(--foreground-color);
 }
 
 a.disabled { 
@@ -22,11 +24,15 @@ a.disabled {
 }
 
 a.grayed {
-	color: #ffffff40
+	opacity: 30%;
 }
 
 .acrylic-backdrop {
 	backdrop-filter: blur(5px);
+}
+
+.material-icons {
+	color: var(--foreground-color);
 }
 
  /* material design typography scale: 

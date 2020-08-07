@@ -1,3 +1,5 @@
+@import url('styles.css');
+
 .main-container {
     margin: auto;
     width: 100%;
@@ -27,7 +29,7 @@
 
 .tile-frame {
     border-radius: 6px;
-	background-color: #ffffff57;
+	background-color: var(--tile-frame-color);
 	vertical-align: center;
 	width: 172px;
 	height: 172px;
