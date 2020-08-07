@@ -46,11 +46,7 @@
 
                 <!-- now playing information -->
                    
-                <div id="now-playing-text">
-                    <b><span id="now-playing-song-title">Title</span></b>
-                    •
-                    <span id="now-playing-artist">Artist</span>
-                </div>
+                <div id="now-playing-text"></div>
 
             </ul>
 
@@ -74,10 +70,21 @@
                 <li>
                     <!-- prev, play/pause, and next -->
                     <ul>
-                        <li><a onClick="MusicModel.skipPrevious()"><i class="material-icons">skip_previous</i></a></li>
-                        <li><a onClick="MusicModel.playPause()" class="btn-floating pulse"><i id="play-pause-icon"
-                            class="material-icons left">play_arrow</i></a></li>
-                        <li><a onClick="MusicModel.skipNext()"><i class="material-icons">skip_next</i></a></li>
+                        <li>
+                            <a class="disabled" id="skip-previous-button" onClick="MusicModel.skipPrevious()">
+                                <i class="material-icons">skip_previous</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="play-pause-button" onClick="MusicModel.playPause()" class="btn-floating disabled">
+                                <i id="play-pause-icon" class="material-icons left">play_arrow</i>
+                            </a>
+                        </li>
+                        <li>   
+                            <a class="disabled" id="skip-next-button" onClick="MusicModel.skipNext()">
+                                <i class="material-icons">skip_next</i>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li>

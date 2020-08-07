@@ -8,9 +8,34 @@ var srcOnLastUpdate;
 class MediaControls {
     static update() {
         //update play-pause button
+        if (audioElement.src == "")
+            document.getElementById("play-pause-button").setAttribute("class", "btn-floating disabled");
+        else if (audioElement.paused)
+            document.getElementById("play-pause-button").setAttribute("class", "btn-floating pulse");
+        else 
+            document.getElementById("play-pause-button").setAttribute("class", "btn-floating");
+
         document.getElementById("play-pause-icon").innerHTML = 
             audioElement.paused  ? "play_arrow" : "pause";
 
+        //update skip buttons
+        if (nowPlayingList[track - 1] == null)
+            document.getElementById("skip-previous-button").setAttribute("class", "disabled");
+        else 
+            document.getElementById("skip-previous-button").removeAttribute("class");
+
+        //update skip buttons
+        if (nowPlayingList[track - 1] == null)
+            document.getElementById("skip-previous-button").setAttribute("class", "disabled");
+        else 
+            document.getElementById("skip-previous-button").removeAttribute("class");
+
+        //update skip buttons
+        if (nowPlayingList[track + 1] == null)
+            document.getElementById("skip-next-button").setAttribute("class", "disabled");
+        else 
+            document.getElementById("skip-next-button").removeAttribute("class");
+        
         //update seeker once
         this.updateSeeker();
         

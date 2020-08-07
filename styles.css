@@ -15,6 +15,15 @@ a {
 	color: #ffffff;
 }
 
+a.disabled { 
+	pointer-events: none; 
+	color: #ffffff40
+}
+
+.acrylic-backdrop {
+	backdrop-filter: blur(5px);
+}
+
  /* material design typography scale: 
   * https://material.io/design/typography/the-type-system.html#type-scale
   */

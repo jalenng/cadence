@@ -1,9 +1,15 @@
 var MediaControls = require('./mediacontrols.js');
+var WindowButton = require('./windowbtn.js');
 
 const menuTemplate = [
 	{
 		role: 'fileMenu',
 		submenu: [
+			{
+                label: 'Open',
+                click() {openFile()},
+            },
+			{type: 'separator'},
 			{role: 'quit'},
 		]
 	},
@@ -66,10 +72,5 @@ const menuTemplate = [
 		]
 	}
 ]
-
-// run on program startup
-audioElement.src = "Sunset.mp3";
-audioElement.load();
-MediaControls.update();
 
 Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));

@@ -22,9 +22,8 @@ function createWindow() {
 
 	win.loadFile('index.html');
 	
-	// Open the DevTools.
+	// Open the DevTools
 	win.webContents.openDevTools();
-
 }
 
 // Set up Windows taskbar jump list
@@ -57,4 +56,3 @@ app.on('activate', () => {
 		createWindow();
 	}
 })
-
