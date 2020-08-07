@@ -58,7 +58,7 @@ function openFile() {
 	dialog.showOpenDialog(currentWindow, options).then(result => {
 		if (!result.canceled) {
 			for (var i = 0; i < result.filePaths.length; i++) {
-				MusicModel.load(result.filePaths[i]);
+				PlayerModel.load(result.filePaths[i]);
 			}
 		}
 	}).catch(err => {

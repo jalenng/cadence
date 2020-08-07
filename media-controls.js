@@ -8,44 +8,37 @@ var srcOnLastUpdate;
 class MediaControls {
     static update() {
         //update play-pause button
-        if (audioElement.src == "")
-            document.getElementById("play-pause-button").setAttribute("class", "btn-floating disabled");
-        else if (audioElement.paused)
-            document.getElementById("play-pause-button").setAttribute("class", "btn-floating pulse");
-        else 
-            document.getElementById("play-pause-button").setAttribute("class", "btn-floating");
-
+        document.getElementById("play-pause-button").setAttribute("class", 
+            audioElement.src == "" ? "btn-floating disabled grayed" :
+            audioElement.paused ? "btn-floating pulse" : "btn-floating"
+        );
         document.getElementById("play-pause-icon").innerHTML = 
             audioElement.paused  ? "play_arrow" : "pause";
 
-        //update skip buttons
-        if (nowPlayingList[track - 1] == null)
-            document.getElementById("skip-previous-button").setAttribute("class", "disabled");
-        else 
-            document.getElementById("skip-previous-button").removeAttribute("class");
+        //update skip previous button
+        document.getElementById("skip-previous-button").setAttribute("class", 
+            nowPlayingList[track - 1] == null ? "disabled grayed" : ""
+        );
 
-        //update skip buttons
-        if (nowPlayingList[track - 1] == null)
-            document.getElementById("skip-previous-button").setAttribute("class", "disabled");
-        else 
-            document.getElementById("skip-previous-button").removeAttribute("class");
-
-        //update skip buttons
-        if (nowPlayingList[track + 1] == null)
-            document.getElementById("skip-next-button").setAttribute("class", "disabled");
-        else 
-            document.getElementById("skip-next-button").removeAttribute("class");
+        //update skip next button
+        document.getElementById("skip-next-button").setAttribute("class", 
+            nowPlayingList[track + 1] == null ? "disabled grayed" : ""
+        );
         
         //update seeker once
         this.updateSeeker();
         
         //set or clear continuous updating of seeker
-        if (audioElement.paused) {
+        if (audioElement.paused) 
             clearInterval(seekUpdateInterval);
-        }
-        else {
+        else 
             seekUpdateInterval = setInterval(this.updateSeeker, 10)
-        }
+
+        //update repeat button
+        document.getElementById("repeat-button").setAttribute("class", 
+            repeatMode == 0 ? "grayed" : "");
+        document.getElementById("repeat-button-icon").innerHTML = 
+            repeatMode == 2 ? "repeat_one" : "repeat";
 
         //update volume button
         document.getElementById("volume-button-icon").innerHTML = 
@@ -57,34 +50,36 @@ class MediaControls {
         document.getElementById("volume-slider").value = audioElement.volume * 100;
 
         //fetching song metadata
-        var path = url.fileURLToPath(audioElement.src.toString().replace(/\//g, "/"));
-        if (srcOnLastUpdate != audioElement.src) {
-            jsmediatags.read(path, { //slice to remove "file:///" header  
-                onSuccess: function (tag) {
-                    MediaControls.updateNowPlayingMetadata(tag, path);
-                },
-                onError: function (error) {
-                    console.log('Error loading metadata: ' + path);
-                }
-            });
-            srcOnLastUpdate = audioElement.currentSrc;
+        if (audioElement.src != "") {
+            var path = url.fileURLToPath(audioElement.src.toString().replace(/\//g, "/"));
+            if (srcOnLastUpdate != audioElement.src) {
+                jsmediatags.read(path, { //slice to remove "file:///" header  
+                    onSuccess: function (tag) {
+                        MediaControls.updateNowPlayingMetadata(tag, path);
+                    },
+                    onError: function (error) {
+                        console.log('Error loading metadata: ' + path);
+                    }
+                });
+                srcOnLastUpdate = audioElement.currentSrc;
+            }
         }
 
         // Configure Windows taskbar thumbnail toolbar
         var skipPreviousThumbbarButton = {
             tooltip: 'Previous',
             icon: "media/thumbbar/skip_previous.png",
-            click () { MusicModel.skipPrevious() }
+            click () { PlayerModel.skipPrevious() }
         }
         var playPauseThumbbarButton = {
             tooltip: 'Play',
             icon: audioElement.paused ? "media/thumbbar/play_arrow.png" : "media/thumbbar/pause.png",
-            click () { MusicModel.playPause()  }
+            click () { PlayerModel.playPause()  }
         }
         var skipNextThumbbarButton =  {
             tooltip: 'Next',
             icon: "media/thumbbar/skip_next.png",
-            click () { MusicModel.skipNext() }
+            click () { PlayerModel.skipNext() }
         }
         var thumbbarButtons = [
             skipPreviousThumbbarButton, 

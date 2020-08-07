@@ -1,5 +1,5 @@
 {
-  "name": "AZCadence",
+  "name": "Cadence",
   "version": "0.1.0",
   "description": "A music player built with Electron",
   "main": "main.js",
@@ -8,20 +8,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jalenng/AZCadence.git"
+    "url": "git+https://github.com/jalenng/Cadence.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jalenng/AZCadence/issues"
+    "url": "https://github.com/jalenng/Cadence/issues"
   },
-  "homepage": "https://github.com/jalenng/AZCadence#readme",
+  "homepage": "https://github.com/jalenng/Cadence#readme",
   "devDependencies": {
     "electron": "^9.1.2",
     "electron-builder": "^22.8.0",
     "electron-reloader": "^1.0.1"
   },
   "dependencies": {
+    "about-window": "^1.13.4",
     "ampersand-collection": "^2.0.2",
     "ampersand-dom-bindings": "^3.9.2",
     "ampersand-events": "^2.0.2",
@@ -32,6 +33,7 @@
     "electron-store": "^6.0.0",
     "flickity": "^2.2.1",
     "jsmediatags": "^3.9.3",
+    "material-design-icons-iconfont": "^5.0.1",
     "materialize-css": "^1.0.0-rc.2"
   }
 }

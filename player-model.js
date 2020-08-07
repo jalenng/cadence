@@ -1,4 +1,4 @@
-var MediaControls = require('./mediacontrols.js');
+var MediaControls = require('./media-controls.js');
 var List = require("collections/list");
 
 var audioElement = document.createElement("AUDIO");
@@ -6,18 +6,28 @@ var audioElement = document.createElement("AUDIO");
 audioElement.addEventListener("play", () => {MediaControls.update()});
 audioElement.addEventListener("pause", () => {MediaControls.update()});
 audioElement.addEventListener("ended", () => {
-    if (nowPlayingList[track + 1] != null) {
-        MusicModel.skipNext();
-        MusicModel.play();
+    if (repeatMode == 0 && nowPlayingList[track + 1] != null) {
+        PlayerModel.skipNext();
+        PlayerModel.play();
+    }
+    else if (repeatMode == 1) {
+        track = 0;
+        audioElement.src = nowPlayingList.get(0);
+        PlayerModel.play();
+    }
+    else if (repeatMode == 2) {
+        PlayerModel.play();
     }
 });
 
 var nowPlayingList = new Array();
 var seekUpdateInterval;
 var playPromise;
+var loadPromise;
 var track = 0;
+var repeatMode = 0; //0: no repeat, 1: repeat queue, 2: repeat song
 
-class MusicModel {
+class PlayerModel {
     static playPause() {
         if (audioElement.paused)
             this.play();
@@ -36,7 +46,6 @@ class MusicModel {
         var pausedBeforeSkip = audioElement.paused;
         track = track - 1;
         audioElement.src = nowPlayingList.get(track);
-        audioElement.load();
         if (!pausedBeforeSkip) {
             this.play();
         }
@@ -46,7 +55,6 @@ class MusicModel {
         var pausedBeforeSkip = audioElement.paused;
         track = track + 1;
         audioElement.src = nowPlayingList.get(track);
-        audioElement.load();
         if (!pausedBeforeSkip) {
             this.play();
         }
@@ -72,7 +80,8 @@ class MusicModel {
         console.log("shuffle");
     }
     static toggleRepeat() {
-        console.log("repeat");
+        repeatMode = (repeatMode + 1) % 3;
+        MediaControls.update();
     }
     static load(src) {
         nowPlayingList.push(src);
@@ -84,4 +93,4 @@ class MusicModel {
     }
 }
 
-module.exports = MusicModel;
+module.exports = PlayerModel;

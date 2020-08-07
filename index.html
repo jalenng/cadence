@@ -4,13 +4,12 @@
 <head>
     <title>Main page</title>
     <link rel="stylesheet" href="node_modules\materialize-css\dist\css\materialize.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="indexstyles.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/index-styles.css">
 
     <script src="windowbtn.js"></script>
-    <script src="musicmodel.js"></script>
+    <script src="player-model.js"></script>
 </head>
 
 <body>
@@ -43,9 +42,7 @@
                         <img id="now-playing-album-art">
                     </div>
                 </li>
-
                 <!-- now playing information -->
-                   
                 <div id="now-playing-text"></div>
 
             </ul>
@@ -59,7 +56,7 @@
                         </li>
                         <li>
                             <div class="range-field">
-                                <input onInput="MusicModel.seek()" type="range" id="seek-slider" min="0"
+                                <input onInput="PlayerModel.seek()" type="range" id="seek-slider" min="0"
                                     max="0" />
                             </div>
                         </li>
@@ -71,17 +68,17 @@
                     <!-- prev, play/pause, and next -->
                     <ul>
                         <li>
-                            <a class="disabled" id="skip-previous-button" onClick="MusicModel.skipPrevious()">
+                            <a class="disabled" id="skip-previous-button" onClick="PlayerModel.skipPrevious()">
                                 <i class="material-icons">skip_previous</i>
                             </a>
                         </li>
                         <li>
-                            <a id="play-pause-button" onClick="MusicModel.playPause()" class="btn-floating disabled">
+                            <a id="play-pause-button" onClick="PlayerModel.playPause()" class="btn-floating disabled">
                                 <i id="play-pause-icon" class="material-icons left">play_arrow</i>
                             </a>
                         </li>
                         <li>   
-                            <a class="disabled" id="skip-next-button" onClick="MusicModel.skipNext()">
+                            <a class="disabled" id="skip-next-button" onClick="PlayerModel.skipNext()">
                                 <i class="material-icons">skip_next</i>
                             </a>
                         </li>
@@ -90,17 +87,25 @@
                 <li>
                     <!-- playlist playback control slider -->
                     <ul>
-                        <li><a onClick="MusicModel.toggleShuffle()"><i class="material-icons">shuffle</i></a></li>
-                        <li><a onClick="MusicModel.toggleRepeat()"><i class="material-icons">repeat</i></a></li>
+                        <li>
+                            <a onClick="PlayerModel.toggleShuffle()">
+                                <i class="material-icons">shuffle</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="grayed" id="repeat-button" onClick="PlayerModel.toggleRepeat()">
+                                <i id="repeat-button-icon" class="material-icons">repeat</i>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li>
                     <!-- volume slider -->
                     <ul>
-                        <a onClick="MusicModel.toggleMute()" id="volume-button"><i id="volume-button-icon"
+                        <a onClick="PlayerModel.toggleMute()" id="volume-button"><i id="volume-button-icon"
                             class="material-icons">volume_off</i></a>
                         <div class="acrylic-backdrop range-field z-depth-5" id="volume-slider-field">
-                            <input onInput="MusicModel.setVolume()" type="range" id="volume-slider" min="0"
+                            <input onInput="PlayerModel.setVolume()" type="range" id="volume-slider" min="0"
                                 max="100" />
                         </div>
                     </ul>
@@ -108,6 +113,7 @@
             </ul>
         </nav>
     </footer>
+
 </body>
 
 <script src="init.js"></script>

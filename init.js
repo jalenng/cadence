@@ -1,5 +1,7 @@
-var MediaControls = require('./mediacontrols.js');
+var MediaControls = require('./media-controls.js');
 var WindowButton = require('./windowbtn.js');
+var openAboutWindow = require('about-window').default;
+var join = require('path').join;
 
 const menuTemplate = [
 	{
@@ -29,45 +31,54 @@ const menuTemplate = [
 	  submenu: [
             {
                 label: 'Play/Pause',
-                click() {MusicModel.playPause()},
+                click() {PlayerModel.playPause()},
             },
 			{role: 'separator'},
 			{
                 label: 'Skip Previous',
-                click() {MusicModel.skipPrevious()},
+                click() {PlayerModel.skipPrevious()},
             },
 			{
                 label: 'Skip Next',
-                click() {MusicModel.skipNext()},
+                click() {PlayerModel.skipNext()},
             },
 			{role: 'separator'},
 			{
 				label: 'Toggle Shuffle',
-                click() {MusicModel.toggleShuffle()},
+                click() {PlayerModel.toggleShuffle()},
             },
 			{
                 label: 'Toggle Repeat',
-                click() {MusicModel.toggleRepeat()},
+                click() {PlayerModel.toggleRepeat()},
             },
             {role: 'separator'},
 			{
 				label: 'Volume Up',
-                click() {MusicModel.setVolumeBy(0.1)},
+                click() {PlayerModel.setVolumeBy(0.1)},
             },
 			{
                 label: 'Volume Down',
-                click() {MusicModel.setVolumeBy(-0.1)},
+                click() {PlayerModel.setVolumeBy(-0.1)},
             },
             {
 				label: 'Mute',
-                click() {MusicModel.toggleMute()},
+                click() {PlayerModel.toggleMute()},
             },
 		]
 	},
 	{
 		role: 'help',
 		submenu: [
-			{role: 'about'},
+			{
+				label: "About Cadence",
+				click() {openAboutWindow({
+					icon_path: join(__dirname, 'ico/AZCad.ico'),
+					package_json_dir: __dirname,
+					css_path: [
+						join(__dirname, 'styles/about-styles.css')
+					]
+				});}
+			},
 			{label: 'Check for Updates'}
 		]
 	}
