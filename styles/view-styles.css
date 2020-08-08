@@ -78,10 +78,6 @@
 	width: 10px;
 }
 
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-  
 /* Track */
 ::-webkit-scrollbar-track {
 	background: transparent;
@@ -89,13 +85,13 @@
   
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #f1f1f1;
+    background: var(--scrollbar-thumb-color);
     border-radius: 2px;
 }
   
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #888;
+	background: var(--scrollbar-thumb-hover-color);
 }
 
 ::-webkit-scrollbar-track-piece:end {

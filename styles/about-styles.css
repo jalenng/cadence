@@ -1,79 +1,139 @@
+@import url('styles.css');
+@import url('themes.css');
+
 body,
 html {
-  width: 100%;
-  height: 100%;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-app-region: drag;
+	width: 100%;
+	height: 100%;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-app-region: drag;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-  background-color: #121212;
-  font-size: 12px;
-  font-family: 'Segoe UI';
+	margin: 0;
+	display: inline-block;
+	justify-content: left;
+	align-items: left;
+	color: var(--foreground-color);
+	background-color: var(--background-color);
+	font-size: 12px;
+	font-family: 'Segoe UI';
+}
+
+.sidebar {
+	background-image: url("../media/background.png");
+	background-size: cover;
+	overflow: hidden;
+	float: left;
+	padding-top: 50px;
+	box-sizing: border-box;
+	height: 100%;
+	width: 200px;
 }
 
 .logo {
-  width: 200px;
-  -webkit-user-select: none;
-  user-select: none;
+	margin: auto;
+	width: 100px;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#app-icon {
+ 	 width: 100%;
+}
+
+.main-panel {
+	height: 100%;
+	padding: 15px;
+	box-sizing: border-box;
+	justify-content: left;
+	align-items: left;
+	display: flex;
+	flex-direction: column;
 }
 
 .title,
 .copyright,
+.description,
+.pronunciation,
+.definition {
+	margin: 5px 0px;
+}
+
+.title {
+	padding: 0px;
+}
+
+.pronunciation, .definition {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .description {
-  margin: 0.2em;
+  	display: none;
+}
+
+.pronunciation {
+	font-size: 18px;
+	font-style: italic;
+	opacity: 67%; 
+}
+
+.definition {
+	font-size: 12px;
 }
 
 .clickable {
-  cursor: pointer;
+  	cursor: pointer;
 }
 
 .description {
-  margin-bottom: 1em;
-  text-align: center;
+	margin-bottom: 1em;
+	text-align: left;
+}
+
+.bottom-text {
+	position: absolute;                  
+	bottom: 10px;
 }
 
 .versions {
-  border-collapse: collapse;
-  margin-top: 1em;
+	border-collapse: collapse;
+	margin-top: 0.5em;
 }
 
 .copyright,
 .versions {
-  color: #999;
+	opacity: 67%; 
 }
 
 .buttons {
-  margin-bottom: 1em;
-  text-align: center;
+	margin-bottom: 1em;
+	position: absolute;                  
+	bottom: 10px;                          
+	right: 10px; 
 }
 
 .buttons button {
-  margin-top: 1em;
-  width: 100px;
-  height: 24px;
+	width: 50px;
+	height: 32px;
+	background-color: #65A599;
+	color: #ffffff
 }
 
 .link {
-  cursor: pointer;
-  color: #80a0c2;
+	cursor: pointer;
+	color: #80a0c2;
 }
 
 .bug-report-link {
-  position: absolute;
-  right: 0.5em;
-  bottom: 0.5em;
+	position: absolute;
+	right: 0.5em;
+	bottom: 0.5em;
 }
 
 .clickable,
 .bug-report-link,
 .buttons button {
-  -webkit-app-region: no-drag;
+  	-webkit-app-region: no-drag;
 }

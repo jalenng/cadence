@@ -5,8 +5,12 @@
     --primary-color: #555555ab;
     --tile-frame-color: #ffffff57;
     
+    --menu-icon-filter: grayscale(100%) brightness(100%);
     --search-bar-color: #ffffff;
     --search-icon-color: #121212;
+
+    --scrollbar-thumb-color: #f1f1f1;
+    --scrollbar-thumb-hover-color: #888888;
 }
 
 .theme-light {
@@ -14,21 +18,28 @@
     --foreground-color: #000000;
 
     --primary-color: #C0C0C0ab;
-    --tile-frame-color: #55555557;
 
+    --menu-icon-filter: grayscale(100%) brightness(0%);
     --search-bar-color: #ffffff;
     --search-icon-color: #121212;
+
+    --scrollbar-thumb-color: #808080;
+    --scrollbar-thumb-hover-color: #ababab;
 }
 
-.theme-platinum {
+.theme-silver {
     --background-color: #3a3a3a;
     --foreground-color: #ffffff;
 
-    --primary-color: #ffffffab;
-    --tile-frame-color: #ffffff57;
+    --primary-color: #575757;
+    --tile-frame-color: #808080;
 
+    --menu-icon-filter: grayscale(100%) brightness(100%);
     --search-bar-color: #3a3a3a;
     --search-icon-color: #ffffff;
+
+    --scrollbar-thumb-color: #f1f1f1;
+    --scrollbar-thumb-hover-color: #888888;
 }
 
 .theme-dark-red {
@@ -38,17 +49,25 @@
     --primary-color: #5c4a4aab;
     --tile-frame-color: #ffffff80;
     
+    --menu-icon-filter: grayscale(100%) brightness(100%);
     --search-bar-color: #ffffff;
     --search-icon-color: #121212;
+
+    --scrollbar-thumb-color: #f1f1f1;
+    --scrollbar-thumb-hover-color: #888888;
 }
 
-.theme-gore-eyesore {
+.theme-eyesore {
     --background-color: #3935ff;
     --foreground-color: #ff3c8d;
 
     --primary-color: #6cffa9;
     --tile-frame-color: #f0ff65;
     
+    --menu-icon-filter: ;
     --search-bar-color: #3ea9ca;
     --search-icon-color: #ff0000;
+
+    --scrollbar-thumb-color: #f700ff;
+    --scrollbar-thumb-hover-color: #000000;
 }

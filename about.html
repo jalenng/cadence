@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="theme-dark">
+
+<head>  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <title>About Cadence</title> 
+    <link rel="stylesheet" href="styles/about-styles.css">  
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img id="app-icon">
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <h2 class="title"></h2>
+        <h3 class="description"></h3>
+        <div class="pronunciation">[ˈkādns]</div>
+        <table class="definition">
+            <tr>
+                <td>1. </td>
+                <td>a modulation or inflection of the voice</td>
+            </tr>
+            <tr>
+                <td>2. </td>
+                <td>a sequence of notes or chords comprising the close of a musical phrase</td>
+            </tr>
+        </table>
+        <div class="bottom-text">
+            <div class="copyright"></div>
+            <table class="versions"></table>
+        </div>
+        <div class="link bug-report-link"></div>
+        <div class="buttons"></div>
+    </div>
+
+    <!-- https://github.com/electron/electron/issues/2863 -->
+    <script>var exports = exports || {};</script>
+
+
+    <script src="node_modules/about-window/src/renderer.js"></script>
+</body>
+
+</html>
