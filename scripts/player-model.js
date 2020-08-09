@@ -1,4 +1,4 @@
-var MediaControls = require('./media-controls.js');
+var MediaControls = require('./scripts/media-controls.js');
 var List = require("collections/list");
 
 var audioElement = document.createElement("AUDIO");

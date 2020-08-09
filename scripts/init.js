@@ -1,7 +1,6 @@
-var MediaControls = require('./media-controls.js');
-var WindowButton = require('./windowbtn.js');
-var openAboutWindow = require('about-window').default;
-var join = require('path').join;
+const WindowButton = require('./scripts/windowbtn.js');
+const openAboutWindow = require('about-window').default;
+const join = require('path').join;
 
 // about dialog
 function createAboutDialog() {

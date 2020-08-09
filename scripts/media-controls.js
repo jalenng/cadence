@@ -1,7 +1,6 @@
-var currentWindow = require('electron').remote.getCurrentWindow();
-var jsmediatags = require("jsmediatags");
-var url = require('url');
-var fs = require('fs');
+const currentWindow = require('electron').remote.getCurrentWindow();
+const jsmediatags = require("jsmediatags");
+const url = require('url');
 
 var srcOnLastUpdate;
 
