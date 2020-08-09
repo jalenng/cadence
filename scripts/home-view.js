@@ -3,7 +3,8 @@ var headerTexts = {
         main: "Good morning",
         splash: [
             "Let's play some music",
-            "Let's start the day off right"
+            "Let's start the day off right",
+            "Today's a new day!"
         ]
     },
     afternoon: {
@@ -11,6 +12,9 @@ var headerTexts = {
         splash: [
             "Let's play some music",
             "Relax to some tunes",
+            "Let's jam!",
+            "Play that song",
+            "Kick back to some tunes"
         ]
     },
     evening: {
@@ -26,7 +30,8 @@ var headerTexts = {
         splash: [
             "Let's play some music",
             "Time to wind down for the night",
-            "Relax to some tunes"
+            "Relax to some tunes",
+            "Pulling an all-nighter?"
         ]
     }
 }    
@@ -39,7 +44,6 @@ let selectedHeaderTexts =
     : hour >= 17 && hour < 21 ? headerTexts.evening
     : headerTexts.night;
 document.getElementById('main-header').innerText = selectedHeaderTexts.main;
-      
 
 // write splash text randomly
 document.getElementById('splash-text').innerText = selectedHeaderTexts.splash[Math.floor(Math.random() * selectedHeaderTexts.splash.length)];

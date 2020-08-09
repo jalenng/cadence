@@ -10,23 +10,38 @@
 </head>
 
 <body>
+    <div id="sidenav">
+        <a onClick="">
+            <i class="material-icons small">home</i>
+        </a>
+        <a onClick="" class="grayed">
+            <i class="material-icons small">music_note</i>
+        </a>
+        <a onClick=""class="grayed">
+            <i class="material-icons small">album</i>
+        </a>
+        <a onClick="" class="grayed">
+            <i class="material-icons small">person</i>
+        </a>
+        <a onClick="" class="grayed">
+            <i class="material-icons small">music_video</i>
+        </a>
+    </div>
+
     <div class="main-container">
         <div class="container">
             <h2 id="main-header"></h2>
             <div id="splash-text"></div>
         </div>
-
         <div class="container">
             <h6>Recently played</h6>
             <div id="recently-played"></div>      
         </div>
-
         <div class="container">
             <h6>Most played</h6>
             <div id="most-played"></div> 
         </div>
-            
-    </div>
+    </div>    
 
     <script src="scripts/theme-switcher.js"></script>
     <script src="node_modules/flickity/dist/flickity.pkgd.min.js"></script>

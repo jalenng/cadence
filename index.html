@@ -2,7 +2,7 @@
 <html class="theme-dark">
 
 <head>
-    <title>Main page</title>
+    <title>Cadence</title>
     <link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="styles/index-styles.css">
@@ -11,18 +11,37 @@
 <body>
     <nav id="titlebar" class="acrylic-backdrop z-depth-4">
         <ul class="left titlebar-buttons">
-            <li><a onClick="menu()" id="menu-button"><i><img id="menu-button-icon" src="./ico/AZCad.ico"></i></a></li>
-            <li><a onClick="openFile()"><i class="material-icons">folder_open</i></a></li>
+            <li>
+                <a onClick="menu()" id="menu-button">
+                    <i><img id="menu-button-icon" src="./ico/AZCad.ico"></i>
+                </a>
+            </li>
+            <li>
+                <a onClick="openFile()">
+                    <i class="material-icons">folder_open</i>
+                </a>
+            </li>
         </ul>
         <div id="titlebar-search" class="input-field">
             <input placeholder="Search" type="text" id="autocomplete-input" class="autocomplete">
             <i class="material-icons prefix">search</i>
         </div>
         <ul class="right titlebar-buttons">
-            <li><a onClick="minimizeWindow()"><i class="material-icons">remove</i></a></li>
-            <li><a onClick="maximizeWindow()"><i id="maximize-button-icon" class="material-icons">fullscreen</i></a>
+            <li>
+                <a onClick="minimizeWindow()">
+                    <i class="material-icons">remove</i>
+                </a>
             </li>
-            <li><a onClick="closeWindow()"><i class="material-icons">close</i></a></li>
+            <li>
+                <a onClick="maximizeWindow()">
+                    <i id="maximize-button-icon" class="material-icons">fullscreen</i>
+                </a>
+            </li>
+            <li>
+                <a onClick="closeWindow()">
+                    <i class="material-icons">close</i>
+                </a>
+            </li>
         </ul>
     </nav>
 

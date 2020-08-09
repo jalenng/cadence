@@ -1,10 +1,40 @@
 @import url('styles.css');
 
+body {
+    padding: 56px 80px 112px 80px;
+}
+
+#sidenav {
+    float: left;
+    position: fixed;
+    left: 12px;
+    top: 110px;
+}
+
+#sidenav a{
+    display: block;
+    padding: 0px;
+    width: 42px;
+    height: 42px;
+    line-height: 38px;
+    margin: 10px;
+    border-radius: 4px;
+    text-align: center;
+    transition-duration: 0.3s;
+} 
+
+#sidenav a:hover {
+    background: var(--sidenav-hover-color);
+}
+
+#sidenav a i {
+    vertical-align: middle;
+}   
+
 .main-container {
     margin: auto;
     width: 100%;
     max-width: 1320px;
-    padding: 56px 56px 112px 56px;
 }
 
 .container {
@@ -86,7 +116,7 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb-color);
-    border-radius: 2px;
+    border-radius: 5px;
 }
   
 /* Handle on hover */

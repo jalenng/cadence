@@ -9,8 +9,10 @@
     --search-bar-color: #ffffff;
     --search-icon-color: #121212;
 
-    --scrollbar-thumb-color: #f1f1f1;
-    --scrollbar-thumb-hover-color: #888888;
+    --sidenav-hover-color: #80808057;
+
+    --scrollbar-thumb-color: #808080;
+    --scrollbar-thumb-hover-color: #ffffff;
 }
 
 .theme-light {
@@ -23,6 +25,8 @@
     --menu-icon-filter: grayscale(100%) brightness(0%);
     --search-bar-color: #ffffff;
     --search-icon-color: #121212;
+
+    --sidenav-hover-color: #808080ab;
 
     --scrollbar-thumb-color: #808080;
     --scrollbar-thumb-hover-color: #ababab;
@@ -39,8 +43,10 @@
     --search-bar-color: #3a3a3a;
     --search-icon-color: #ffffff;
 
-    --scrollbar-thumb-color: #f1f1f1;
-    --scrollbar-thumb-hover-color: #888888;
+    --sidenav-hover-color: #808080;
+
+    --scrollbar-thumb-color: #afafaf;
+    --scrollbar-thumb-hover-color: #ffffff;
 }
 
 .theme-dark-red {
@@ -54,8 +60,10 @@
     --search-bar-color: #ffffff;
     --search-icon-color: #121212;
 
-    --scrollbar-thumb-color: #f1f1f1;
-    --scrollbar-thumb-hover-color: #888888;
+    --sidenav-hover-color: #808080ab;
+
+    --scrollbar-thumb-color: #755252;
+    --scrollbar-thumb-hover-color: #ffcdd1;
 }
 
 .theme-eyesore {
@@ -65,9 +73,11 @@
     --primary-color: #6cffa9;
     --tile-frame-color: #f0ff65;
     
-    --menu-icon-filter: ;
+    --menu-icon-filter: hue-rotate(270deg) saturate(1000%);
     --search-bar-color: #3ea9ca;
     --search-icon-color: #ff0000;
+
+    --sidenav-hover-color: #d9ff00;
 
     --scrollbar-thumb-color: #f700ff;
     --scrollbar-thumb-hover-color: #000000;

@@ -11,6 +11,10 @@ function setTheme(themeName) {
     else 
         setTheme(localStorage.getItem('theme'));
 
-    //use this to test theme
+    //use these to test theme
     setTheme('theme-dark');
+    // setTheme('theme-light');
+    // setTheme('theme-silver');
+    // setTheme('theme-dark-red');
+    // setTheme('theme-eyesore');
 })();
