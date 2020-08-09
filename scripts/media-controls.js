@@ -16,12 +16,12 @@ class MediaControls {
 
         //update skip previous button
         document.getElementById("skip-previous-button").setAttribute("class", 
-            nowPlayingList[track - 1] == null ? "disabled grayed" : ""
+            PlayerModel.hasPrevious() ? "" : "disabled grayed"
         );
 
         //update skip next button
         document.getElementById("skip-next-button").setAttribute("class", 
-            nowPlayingList[track + 1] == null ? "disabled grayed" : ""
+            PlayerModel.hasNext() ? "" : "disabled grayed"
         );
         
         //update seeker once
@@ -52,7 +52,7 @@ class MediaControls {
         if (audioElement.src != "") {
             var path = url.fileURLToPath(audioElement.src.toString().replace(/\//g, "/"));
             if (srcOnLastUpdate != audioElement.src) {
-                jsmediatags.read(path, { //slice to remove "file:///" header  
+                jsmediatags.read(path, {
                     onSuccess: function (tag) {
                         MediaControls.updateNowPlayingMetadata(tag, path);
                     },
@@ -65,27 +65,33 @@ class MediaControls {
         }
 
         // Configure Windows taskbar thumbnail toolbar
-        var skipPreviousThumbbarButton = {
+        var skipPreviousThumbarButton = {
             tooltip: 'Previous',
             icon: "media/thumbbar/skip_previous.png",
             click () { PlayerModel.skipPrevious() }
-        }
-        var playPauseThumbbarButton = {
+        };
+        var playPauseThumbarButton = {
             tooltip: 'Play',
-            icon: audioElement.paused ? "media/thumbbar/play_arrow.png" : "media/thumbbar/pause.png",
-            click () { PlayerModel.playPause()  }
-        }
-        var skipNextThumbbarButton =  {
+            icon: audioElement.paused ? "media/thumbbar/play_arrow.png" : "media/thumbbar/pause.png", 
+            click () { PlayerModel.playPause() }
+        };
+        var skipNextThumbarButton =  {
             tooltip: 'Next',
             icon: "media/thumbbar/skip_next.png",
             click () { PlayerModel.skipNext() }
-        }
-        var thumbbarButtons = [
-            skipPreviousThumbbarButton, 
-            playPauseThumbbarButton, 
-            skipNextThumbbarButton
-        ]
-        currentWindow.setThumbarButtons(thumbbarButtons);
+        };
+        var thumbarButtons = [
+            skipPreviousThumbarButton, 
+            playPauseThumbarButton, 
+            skipNextThumbarButton
+        ];
+
+        if (!PlayerModel.hasPrevious()) 
+            skipPreviousThumbarButton.flags = ['disabled'];
+        if (!PlayerModel.hasNext()) 
+            skipNextThumbarButton.flags = ['disabled'];
+
+        currentWindow.setThumbarButtons(thumbarButtons);
     }
 
     static updateSeeker() {
@@ -127,8 +133,8 @@ class MediaControls {
         currentWindow.title = windowTitle;
 
         //deals with album art
-        var base64DataUri = "./media/AlbumDefault.png";
-        var base64String = "";
+        let base64DataUri = "./media/AlbumDefault.png";
+        let base64String = "";
         if (tags.picture) {
             for (var i = 0; i < tags.picture.data.length; i++) {
                 base64String += String.fromCharCode(tags.picture.data[i]);
@@ -148,6 +154,14 @@ class MediaControls {
                 { src: this.base64ToDataUri(base64DataUri, 256, 256), sizes: '256x256', type: 'image/png' }
             ]
         });
+
+        let previousTrackActionHandlerFunction = 
+            PlayerModel.hasPrevious() ? () => {PlayerModel.skipPrevious()} : null;
+        navigator.mediaSession.setActionHandler('previoustrack', previousTrackActionHandlerFunction);
+        
+        let nextTrackActionHandlerFunction = 
+            PlayerModel.hasNext() ? () => {PlayerModel.skipNext()} : null;
+        navigator.mediaSession.setActionHandler('nexttrack', nextTrackActionHandlerFunction);
     }
 
     static base64ToDataUri(base64DataUri, width, height) {

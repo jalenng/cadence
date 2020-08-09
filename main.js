@@ -13,9 +13,9 @@ function createWindow() {
 		minHeight: 800,
 		backgroundColor: '#2e2c29',
 		frame: false,
-		enableRemoteModule: true,
 		icon: "ico/AZCad.ico",
 		webPreferences: {
+			enableRemoteModule: true,
 			nodeIntegration: true
 		}
 	})

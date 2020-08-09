@@ -1,7 +1,7 @@
-var MediaControls = require('./scripts/media-controls.js');
-var List = require("collections/list");
+const MediaControls = require('./scripts/media-controls.js');
+const List = require("collections/list");
 
-var audioElement = document.createElement("AUDIO");
+const audioElement = document.createElement("AUDIO");
 
 audioElement.addEventListener("play", () => {MediaControls.update()});
 audioElement.addEventListener("pause", () => {MediaControls.update()});
@@ -46,18 +46,16 @@ class PlayerModel {
         var pausedBeforeSkip = audioElement.paused;
         track = track - 1;
         audioElement.src = nowPlayingList.get(track);
-        if (!pausedBeforeSkip) {
+        if (!pausedBeforeSkip) 
             this.play();
-        }
         MediaControls.update();
     }
     static skipNext() {
         var pausedBeforeSkip = audioElement.paused;
         track = track + 1;
         audioElement.src = nowPlayingList.get(track);
-        if (!pausedBeforeSkip) {
+        if (!pausedBeforeSkip) 
             this.play();
-        }
         MediaControls.update();
     }
     static toggleMute() {
@@ -90,6 +88,12 @@ class PlayerModel {
             audioElement.src = nowPlayingList.get(track);
         }
         MediaControls.update();
+    }
+    static hasPrevious() {
+        return nowPlayingList[track - 1] != null;
+    }
+    static hasNext() {
+        return nowPlayingList[track + 1] != null;
     }
 }
 
