@@ -18,6 +18,7 @@
     --foreground-color: #000000;
 
     --primary-color: #C0C0C0ab;
+    --tile-frame-color: #aaaaaaab;
 
     --menu-icon-filter: grayscale(100%) brightness(0%);
     --search-bar-color: #ffffff;

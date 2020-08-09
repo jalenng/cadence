@@ -43,20 +43,24 @@ class PlayerModel {
             playPromise.then(() => audioElement.pause())
     }
     static skipPrevious() {
-        var pausedBeforeSkip = audioElement.paused;
-        track = track - 1;
-        audioElement.src = nowPlayingList.get(track);
-        if (!pausedBeforeSkip) 
-            this.play();
-        MediaControls.update();
+        if (this.hasPrevious()) {
+            var pausedBeforeSkip = audioElement.paused;
+            track = track - 1;
+            audioElement.src = nowPlayingList.get(track);
+            if (!pausedBeforeSkip) 
+                this.play();
+            MediaControls.update();
+        }
     }
     static skipNext() {
-        var pausedBeforeSkip = audioElement.paused;
-        track = track + 1;
-        audioElement.src = nowPlayingList.get(track);
-        if (!pausedBeforeSkip) 
-            this.play();
-        MediaControls.update();
+        if (this.hasNext()) {
+            var pausedBeforeSkip = audioElement.paused;
+            track = track + 1;
+            audioElement.src = nowPlayingList.get(track);
+            if (!pausedBeforeSkip) 
+                this.play();
+            MediaControls.update();
+        }
     }
     static toggleMute() {
         audioElement.muted = !audioElement.muted;
