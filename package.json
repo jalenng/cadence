@@ -23,16 +23,9 @@
   },
   "dependencies": {
     "about-window": "^1.13.4",
-    "ampersand-collection": "^2.0.2",
-    "ampersand-dom-bindings": "^3.9.2",
-    "ampersand-events": "^2.0.2",
-    "ampersand-model": "^8.0.1",
-    "ampersand-view": "^10.0.3",
-    "ampersand-view-switcher": "^3.0.0",
     "collections": "^5.1.11",
     "electron-store": "^6.0.0",
     "flickity": "^2.2.1",
-    "jquery": "^3.5.1",
     "jsmediatags": "^3.9.3",
     "material-design-icons-iconfont": "^5.0.1",
     "materialize-css": "^1.0.0-rc.2"
