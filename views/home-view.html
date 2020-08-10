@@ -17,7 +17,7 @@
         <a href="song-view.html" class="selectable grayed" title="Songs">
             <i class="material-icons small">music_note</i>
         </a>
-        <a onClick=""class="selectable grayed" title="Album">
+        <a onClick="" class="selectable grayed" title="Album">
             <i class="material-icons small">album</i>
         </a>
         <a onClick="" class="selectable grayed" title="Artist">
@@ -28,20 +28,28 @@
         </a>
     </div>
 
-    <div class="main-container">
-        <div class="container">
-            <h2 id="main-header"></h2>
-            <div id="splash-text"></div>
+    <div class="foreground">
+        <div class="main-container">
+            <div class="container">
+                <h2 id="main-header"></h2>
+                <div id="splash-text"></div>
+            </div>
+            <div class="container">
+                <h6>Recently played</h6>
+                <div id="recently-played"></div>
+            </div>
+            <div class="container">
+                <h6>Most played</h6>
+                <div id="most-played"></div>
+            </div>
+            <div class="container">
+                <h6>Playlists</h6>
+                <div id="playlists"></div>
+            </div>
         </div>
-        <div class="container">
-            <h6>Recently played</h6>
-            <div id="recently-played"></div>      
-        </div>
-        <div class="container">
-            <h6>Most played</h6>
-            <div id="most-played"></div> 
-        </div>
-    </div>    
+    </div>
+    <div class="background"></div>
+
 
     <script src="../scripts/theme-switcher.js"></script>
     <script src="../node_modules/flickity/dist/flickity.pkgd.min.js"></script>
