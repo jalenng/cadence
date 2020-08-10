@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="theme-dark">
+<html id="song" class="theme-dark">
 
 <head>
     <title>Song View</title>
@@ -10,23 +10,7 @@
 </head>
 
 <body>
-    <div id="sidenav">
-        <a href="home-view.html" class="selectable grayed" title="Home">
-            <i class="material-icons small">home</i>
-        </a>
-        <a href="song-view.html" class="selectable" title="Songs">
-            <i class="material-icons small">music_note</i>
-        </a>
-        <a onClick="" class="selectable grayed" title="Albums">
-            <i class="material-icons small">album</i>
-        </a>
-        <a onClick="" class="selectable grayed" title="Artists">
-            <i class="material-icons small">person</i>
-        </a>
-        <a onClick="" class="selectable grayed" title="Now Playing">
-            <i class="material-icons small">music_video</i>
-        </a>
-    </div>
+    <div id="sidenav"></div>
 
     <div id="indexed-list"></div>
 
@@ -37,6 +21,7 @@
     </div>    
 
     <script src="../scripts/theme-switcher.js"></script>
+    <script src="../scripts/sidenav.js"></script>
     <script src="../scripts/song-view.js"></script>
 
 </body>
