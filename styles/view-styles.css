@@ -1,13 +1,25 @@
 @import url('styles.css');
 
 body {
-    padding: 56px 80px 112px 80px;
+    padding: 0px 80px 0px 80px;
 }
+
+/* selectables */
+.selectable {
+    transition-duration: 0.3s;
+}
+
+.selectable:hover {
+    background-color: var(--element-hover-color);
+    transform:scale(1.025);
+}
+
+/* sidenav */
 
 #sidenav {
     float: left;
     position: fixed;
-    left: 12px;
+    left: 6px;
     top: 110px;
 }
 
@@ -20,33 +32,61 @@ body {
     margin: 10px;
     border-radius: 4px;
     text-align: center;
-    transition-duration: 0.3s;
 } 
-
-#sidenav a:hover {
-    background: var(--sidenav-hover-color);
-}
 
 #sidenav a i {
     vertical-align: middle;
 }   
 
+/* indexed list */
+
+#indexed-list {
+    float: right;
+    position: fixed;
+    right: 16px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#indexed-list a{
+    display: block;
+    font-weight: bold;
+    margin: 3px;
+    border-radius: 4px;
+    text-align: center;
+} 
+
+/* containers */
+
 .main-container {
     margin: auto;
+    padding-bottom: 112px;
     width: 100%;
     max-width: 1320px;
 }
 
 .container {
-    padding: 10px 0px;
+    padding-top: 66px;
     width: 100%;
+    margin-bottom: -56px;
 }
+
+/* headers */
 
 #main-header {
     font-weight: bold;
     letter-spacing: 1px;
     margin-bottom: 10px;
 }
+
+#splash-text {
+    font-weight: normal;
+    font-size: 24px;
+}
+
+/* home view carousels */
 
 .main-carousel {
     height: 220px;
@@ -56,6 +96,8 @@ body {
 .carousel-cell {
     margin-right: 10px;
 }
+
+/* home view, album view, and artist view specific */
 
 .tile-frame {
     border-radius: 6px;
@@ -79,47 +121,78 @@ body {
     width: 100%;
 }
 
-/* no circle */
+/* song-view specific */
+.track-entry {
+    border-radius: 4px;
+    background-color: var(--element-color);
+    width: 100%;
+    height: 48px;     
+    padding: 10px;
+    margin: 6px 0px;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    transition-duration: 0.1s;
+}
+
+.track-entry div {
+    padding: 0px 10px;
+    display: inline-block;
+    height: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.track-entry-title {
+    width: 45vw; 
+}
+
+.track-entry-album {
+    width: 25vw; 
+}
+
+.track-entry-artist {
+    width: 25vw; 
+}
+
+.track-entry-duration {
+    min-width: 70px;
+    width: 5vw; 
+}
+
+/* flickity */ 
 .flickity-button {
     background: transparent;
 }
-/* big previous & next buttons */
+
 .flickity-prev-next-button {
     width: 60px;
     height: 60px;
 }
-/* icon color */
+
 .flickity-button-icon {
     fill: white;
 }
-/* hide disabled button */
+
 .flickity-button:disabled {
     display: none;
 }
 
-#splash-text {
-    font-weight: normal;
-    font-size: 24px;
-}
-
 /* scroll bars */
-/* width */
 ::-webkit-scrollbar {
 	width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
 	background: transparent;
 }
   
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb-color);
     border-radius: 5px;
 }
   
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
 	background: var(--scrollbar-thumb-hover-color);
 }

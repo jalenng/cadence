@@ -62,7 +62,7 @@ for (var i = 0; i < 20; i++) {
 
     let img = document.createElement('img'); 
     img.className = 'tile-img';
-    img.setAttribute('src', 'media/AlbumDefault.png');
+    img.setAttribute('src', '../media/AlbumDefault.png');
     frame.appendChild(img);
 
     let caption = document.createElement('div');
@@ -86,7 +86,7 @@ for (var i = 0; i < 20; i++) {
 
     let img = document.createElement('img'); 
     img.className = 'tile-img';
-    img.setAttribute('src', 'media/AlbumDefault.png');
+    img.setAttribute('src', '../media/AlbumDefault.png');
     frame.appendChild(img);
 
     let caption = document.createElement('div');

@@ -3,27 +3,27 @@
 
 <head>
     <title>Home View</title>
-    <link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.css">
-    <link rel="stylesheet" href="./node_modules/flickity/dist/flickity.css">
-    <link rel="stylesheet" href="styles/view-styles.css">
+    <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.css">
+    <link rel="stylesheet" href="../node_modules/flickity/dist/flickity.css">
+    <link rel="stylesheet" href="../styles/view-styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
     <div id="sidenav">
-        <a onClick="">
+        <a href="home-view.html" class="selectable">
             <i class="material-icons small">home</i>
         </a>
-        <a onClick="" class="grayed">
+        <a href="song-view.html" class="selectable grayed">
             <i class="material-icons small">music_note</i>
         </a>
-        <a onClick=""class="grayed">
+        <a onClick=""class="selectable grayed">
             <i class="material-icons small">album</i>
         </a>
-        <a onClick="" class="grayed">
+        <a onClick="" class="selectable grayed">
             <i class="material-icons small">person</i>
         </a>
-        <a onClick="" class="grayed">
+        <a onClick="" class="selectable grayed">
             <i class="material-icons small">music_video</i>
         </a>
     </div>
@@ -43,9 +43,9 @@
         </div>
     </div>    
 
-    <script src="scripts/theme-switcher.js"></script>
-    <script src="node_modules/flickity/dist/flickity.pkgd.min.js"></script>
-    <script src="scripts/home-view.js"></script>
+    <script src="../scripts/theme-switcher.js"></script>
+    <script src="../node_modules/flickity/dist/flickity.pkgd.min.js"></script>
+    <script src="../scripts/home-view.js"></script>
 
 </body>
 
