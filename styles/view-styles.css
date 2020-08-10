@@ -21,6 +21,7 @@ body {
     position: fixed;
     left: 6px;
     top: 110px;
+    z-index: 9;
 }
 
 #sidenav a{
