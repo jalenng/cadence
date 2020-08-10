@@ -29,21 +29,37 @@ const menuTemplate = [
 		role: 'fileMenu',
 		submenu: [
 			{
-                label: 'Open',
+				label: 'Open',
+				accelerator: 'CmdOrCtrl+O',
                 click() {openFile()},
             },
 			{type: 'separator'},
-			{role: 'quit'},
+			{
+				role: 'quit',
+				accelerator: 'CmdOrCtrl+Shift+Q',
+			},
 		]
 	},
 	{
 		role: 'viewMenu',
 		submenu: [
-			{role: 'resetzoom'},
-			{role: 'zoomin'},
-			{role: 'zoomout'},
+			{
+				role: 'zoomin',
+				accelerator: 'CmdOrCtrl+numadd'
+			},
+			{
+				role: 'zoomout',
+				accelerator: 'CmdOrCtrl+numsub'
+			},
+			{
+				role: 'resetzoom',
+				accelerator: 'CmdOrCtrl+0'
+			},
 			{type: 'separator'},
-			{role: 'togglefullscreen'},
+			{
+				role: 'togglefullscreen',
+				accelerator: 'Alt+Enter'
+			},
 			{role: 'reload'},
 		]
 	},
@@ -51,38 +67,46 @@ const menuTemplate = [
 	  label: 'Playback',
 	  submenu: [
             {
-                label: 'Play/Pause',
+				label: 'Play/Pause',
+				accelerator: 'Space',
                 click() {PlayerModel.playPause()},
             },
 			{role: 'separator'},
 			{
-                label: 'Skip Previous',
+				label: 'Skip Previous',
+				accelerator: 'CmdOrCtrl+Left',
                 click() {PlayerModel.skipPrevious()},
             },
 			{
-                label: 'Skip Next',
+				label: 'Skip Next',
+				accelerator: 'CmdOrCtrl+Right',
                 click() {PlayerModel.skipNext()},
             },
 			{role: 'separator'},
 			{
 				label: 'Toggle Shuffle',
+				accelerator: 'CmdOrCtrl+S',
                 click() {PlayerModel.toggleShuffle()},
             },
 			{
-                label: 'Toggle Repeat',
+				label: 'Toggle Repeat',
+				accelerator: 'CmdOrCtrl+R',
                 click() {PlayerModel.toggleRepeat()},
             },
             {role: 'separator'},
 			{
 				label: 'Volume Up',
+				accelerator: 'CmdOrCtrl+Up',
                 click() {PlayerModel.setVolumeBy(0.1)},
             },
 			{
-                label: 'Volume Down',
+				label: 'Volume Down',
+				accelerator: 'CmdOrCtrl+Down',
                 click() {PlayerModel.setVolumeBy(-0.1)},
             },
             {
 				label: 'Toggle Mute',
+				accelerator: 'CmdOrCtrl+M',
                 click() {PlayerModel.toggleMute()},
             },
 		]
@@ -92,6 +116,7 @@ const menuTemplate = [
 		submenu: [
 			{
 				label: 'About Cadence',
+				accelerator: 'F1',
 				click() {openAboutWindow({
 					win_options: {
 						parent: currentWindow,
