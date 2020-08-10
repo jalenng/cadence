@@ -1,7 +1,7 @@
 @import url('styles.css');
 
 body {
-    padding: 0px 80px 0px 80px;
+    padding: 0px 80px 0px 50px;
 }
 
 /* selectables */
@@ -16,16 +16,19 @@ body {
 
 /* sidenav */
 
-#sidenav {
+#sidenav{
     float: left;
     position: fixed;
     left: 6px;
-    top: 110px;
+    top: 10%;
+    background-color: inherit;
+    background-size: 100%;
+    height: 100%;
 }
 
 #sidenav a{
     display: block;
-    padding: 0px;
+    padding: 10px;
     width: 42px;
     height: 42px;
     line-height: 38px;
@@ -35,7 +38,7 @@ body {
 } 
 
 #sidenav a i {
-    vertical-align: middle;
+    vertical-align: top;
 }   
 
 /* indexed list */
@@ -215,9 +218,8 @@ body{
     perspective: 2px;
 }
 
-.foreground{
+.main-container{
     position: relative;
-    height: 100vh;
     color: white;
 }
 
@@ -235,4 +237,11 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     filter: brightness(80%);
+}
+
+/*Iframe*/
+.viewpanel{
+    border: none;
+    height: inherit;
+    width: 110%;
 }
