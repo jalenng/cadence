@@ -12,12 +12,12 @@
     <nav id="titlebar" class="acrylic-backdrop z-depth-4">
         <ul class="left titlebar-buttons">
             <li>
-                <a onClick="menu()" id="menu-button">
+                <a onClick="menu()" id="menu-button" title="Menu">
                     <i><img id="menu-button-icon" src="./ico/AZCad.ico"></i>
                 </a>
             </li>
             <li>
-                <a onClick="openFile()">
+                <a onClick="openFile()" title="Open">
                     <i class="material-icons">folder_open</i>
                 </a>
             </li>
@@ -28,17 +28,17 @@
         </div>
         <ul class="right titlebar-buttons">
             <li>
-                <a onClick="minimizeWindow()">
+                <a onClick="minimizeWindow()" title="Minimize">
                     <i class="material-icons">remove</i>
                 </a>
             </li>
             <li>
-                <a onClick="maximizeWindow()">
+                <a onClick="maximizeWindow()" title="Maximize/Restore">
                     <i id="maximize-button-icon" class="material-icons">fullscreen</i>
                 </a>
             </li>
             <li>
-                <a onClick="closeWindow()">
+                <a onClick="closeWindow()" title="Close">
                     <i class="material-icons">close</i>
                 </a>
             </li>
@@ -83,17 +83,17 @@
                     <!-- prev, play/pause, and next -->
                     <ul>
                         <li>
-                            <a class="disabled grayed" id="skip-previous-button" onClick="PlayerModel.skipPrevious()">
+                            <a class="disabled grayed" id="skip-previous-button" onClick="PlayerModel.skipPrevious()" title="Skip Previous">
                                 <i class="material-icons">skip_previous</i>
                             </a>
                         </li>
                         <li>
-                            <a id="play-pause-button" onClick="PlayerModel.playPause()" class="btn-floating disabled">
+                            <a id="play-pause-button" onClick="PlayerModel.playPause()" class="btn-floating disabled" title="Play/Pause">
                                 <i id="play-pause-icon" class="material-icons left">play_arrow</i>
                             </a>
                         </li>
                         <li>   
-                            <a class="disabled grayed" id="skip-next-button" onClick="PlayerModel.skipNext()">
+                            <a class="disabled grayed" id="skip-next-button" onClick="PlayerModel.skipNext()" title="Skip Next">
                                 <i class="material-icons">skip_next</i>
                             </a>
                         </li>
@@ -103,12 +103,12 @@
                     <!-- playlist playback control slider -->
                     <ul>
                         <li>
-                            <a onClick="PlayerModel.toggleShuffle()">
+                            <a onClick="PlayerModel.toggleShuffle()" title="Toggle Shuffle">
                                 <i class="material-icons">shuffle</i>
                             </a>
                         </li>
                         <li>
-                            <a class="grayed" id="repeat-button" onClick="PlayerModel.toggleRepeat()">
+                            <a class="grayed" id="repeat-button" onClick="PlayerModel.toggleRepeat()" title="Toggle Repeat">
                                 <i id="repeat-button-icon" class="material-icons">repeat</i>
                             </a>
                         </li>
@@ -117,8 +117,8 @@
                 <li>
                     <!-- volume slider -->
                     <ul>
-                        <a onClick="PlayerModel.toggleMute()" id="volume-button"><i id="volume-button-icon"
-                            class="material-icons">volume_off</i></a>
+                        <a onClick="PlayerModel.toggleMute()" id="volume-button" title="Toggle Mute">
+                            <i id="volume-button-icon" class="material-icons">volume_off</i></a>
                         <div class="acrylic-backdrop range-field z-depth-5" id="volume-slider-field">
                             <input onInput="PlayerModel.setVolume()" type="range" id="volume-slider" min="0"
                                 max="100" />

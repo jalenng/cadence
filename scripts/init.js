@@ -82,7 +82,7 @@ const menuTemplate = [
                 click() {PlayerModel.setVolumeBy(-0.1)},
             },
             {
-				label: 'Mute',
+				label: 'Toggle Mute',
                 click() {PlayerModel.toggleMute()},
             },
 		]
