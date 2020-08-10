@@ -1,5 +1,5 @@
 // write main header text
-document.getElementById('main-header').innerText = 'Albums (WIP)';
+document.getElementById('main-header').innerText = 'Albums';
 
 //populate songs list
 let mainContainer = document.querySelector('.main-container');
@@ -15,30 +15,33 @@ for (var i = 0; i < 26; i++) {
     containerHeader.innerText = letter.toUpperCase();
     indexContainer.appendChild(containerHeader);
 
-    for (var j = 0; j < 5; j++) {
-        let trackEntry = document.createElement('a');
-        trackEntry.className = 'track-entry selectable';
-        indexContainer.appendChild(trackEntry);
+    let flexbox = document.createElement('div');
+    flexbox.className = 'flexbox';
+    indexContainer.appendChild(flexbox);
 
-        let trackEntryTitle = document.createElement('div');
-        trackEntryTitle.className = 'track-entry-title';
-        trackEntryTitle.innerHTML = 'Track';
-        trackEntry.appendChild(trackEntryTitle);
+    for (var j = 0; j < 7; j++) {
+        let albumEntry = document.createElement('a');
+        albumEntry.className = 'album-entry grid-item selectable';
+        flexbox.appendChild(albumEntry);
 
-        let trackEntryAlbum = document.createElement('div');
-        trackEntryAlbum.className = 'track-entry-album';
-        trackEntryAlbum.innerHTML = 'Album';
-        trackEntry.appendChild(trackEntryAlbum);
+        let frame = document.createElement('div'); 
+        frame.className = 'tile-frame';
+        albumEntry.appendChild(frame);
 
-        let trackEntryArtist = document.createElement('div');
-        trackEntryArtist.className = 'track-entry-artist';
-        trackEntryArtist.innerHTML = 'Artist';
-        trackEntry.appendChild(trackEntryArtist);
+        let img = document.createElement('img'); 
+        img.className = 'tile-img';
+        img.setAttribute('src', '../media/AlbumDefault.png');
+        frame.appendChild(img);
 
-        let trackEntryDuration = document.createElement('div');
-        trackEntryDuration.className = 'track-entry-duration';
-        trackEntryDuration.innerHTML = '4:20';
-        trackEntry.appendChild(trackEntryDuration);
+        let albumEntryTitle = document.createElement('div');
+        albumEntryTitle.className = 'album-entry-title';
+        albumEntryTitle.innerHTML = 'Album';
+        albumEntry.appendChild(albumEntryTitle);
+
+        let albumEntryArtist = document.createElement('div');
+        albumEntryArtist.className = 'album-entry-artist';
+        albumEntryArtist.innerHTML = 'Artist';
+        albumEntry.appendChild(albumEntryArtist);
     }
 }
 

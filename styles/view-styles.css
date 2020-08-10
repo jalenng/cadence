@@ -15,7 +15,7 @@ body {
 
 .selectable:hover {
     background-color: var(--element-hover-color);
-    transform:scale(1.025);
+    transform: scale(1.025);
 }
 
 /* sidenav */
@@ -107,8 +107,8 @@ body {
     border-radius: 6px;
 	background-color: var(--tile-frame-color);
 	vertical-align: center;
-	width: 172px;
-	height: 172px;
+	width: 160px;
+	height: 160px;
     padding: 4px;
     margin-bottom: 10px
 }
@@ -119,10 +119,18 @@ body {
     height: 100%;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
-    width: 100%;
+.flexbox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.album-entry {
+    display: inline;
+    border-radius: 4px;
+    padding: 6px;
+    margin: 5px;
+    background-color: var(--element-color);
+    transition-duration: 0.1s;
 }
 
 /* song-view specific */

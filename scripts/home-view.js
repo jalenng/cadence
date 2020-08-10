@@ -63,9 +63,10 @@ recentlyPlayedCarousel.setAttribute('data-flickity', '{"pageDots": false, "freeS
 for (var i = 0; i < 20; i++) {
     let div = document.createElement('div'); 
     div.className = 'carousel-cell';
+    recentlyPlayedCarousel.appendChild(div);
 
     let frame = document.createElement('div'); 
-    frame.className = 'tile-frame';
+    frame.className = 'tile-frame acrylic-backdrop';
     div.appendChild(frame);
 
     let img = document.createElement('img'); 
@@ -75,9 +76,7 @@ for (var i = 0; i < 20; i++) {
 
     let caption = document.createElement('div');
     caption.innerText = 'Album';
-    div.appendChild(caption);
-
-    recentlyPlayedCarousel.appendChild(div);
+    div.appendChild(caption);    
 }
 
 //populate most played list
