@@ -1,10 +1,15 @@
+const os = require('os');
+const username = os.userInfo().username;
+const Flickity = require('flickity');
+
 var headerTexts = {
     morning: {
         main: "Good morning",
         splash: [
             "Let's play some music",
             "Let's start the day off right",
-            "Today's a new day!"
+            "Today's a new day!",
+            "Seize the day"
         ]
     },
     afternoon: {
@@ -22,14 +27,15 @@ var headerTexts = {
         splash: [
             "Let's play some music",
             "Put on some beats",
-            "Set the mood"
+            "Set the mood",
+            "Find your focus"
         ]
     },
     night: {
         main: "Good night",
         splash: [
             "Let's play some music",
-            "Time to wind down for the night",
+            "Time to wind down",
             "Relax to some tunes",
             "Pulling an all-nighter?"
         ]
@@ -43,7 +49,9 @@ let selectedHeaderTexts =
     : hour >= 12 && hour < 17 ? headerTexts.afternoon
     : hour >= 17 && hour < 21 ? headerTexts.evening
     : headerTexts.night;
-document.getElementById('main-header').innerText = selectedHeaderTexts.main;
+document.getElementById('main-header').innerText = selectedHeaderTexts.main + ", " + username.replace(/\b\w/g, function(c) {
+    return c.toUpperCase();
+});
 
 // write splash text randomly
 document.getElementById('splash-text').innerText = selectedHeaderTexts.splash[Math.floor(Math.random() * selectedHeaderTexts.splash.length)];

@@ -16,7 +16,8 @@ function createWindow() {
 		icon: "ico/AZCad.ico",
 		webPreferences: {
 			enableRemoteModule: true,
-			nodeIntegration: true
+			nodeIntegration: true,
+			nodeIntegrationInSubFrames: true,
 		}
 	})
 
