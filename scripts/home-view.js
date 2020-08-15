@@ -61,22 +61,22 @@ let recentlyPlayedCarousel = document.getElementById('recently-played');
 recentlyPlayedCarousel.className = 'main-carousel';
 recentlyPlayedCarousel.setAttribute('data-flickity', '{"pageDots": false, "freeScroll": true, "cellAlign": "left", "contain": true, "prevNextButtons": false}');
 for (var i = 0; i < 20; i++) {
-    let div = document.createElement('div'); 
-    div.className = 'carousel-cell';
-    recentlyPlayedCarousel.appendChild(div);
+    let albumEntry = document.createElement('a'); 
+    albumEntry.className = 'carousel-cell album-entry selectable';
+    recentlyPlayedCarousel.appendChild(albumEntry);
 
     let frame = document.createElement('div'); 
-    frame.className = 'tile-frame acrylic-backdrop';
-    div.appendChild(frame);
+    frame.className = 'album-frame acrylic-backdrop';
+    albumEntry.appendChild(frame);
 
     let img = document.createElement('img'); 
-    img.className = 'tile-img';
+    img.className = 'album-img';
     img.setAttribute('src', '../media/AlbumDefault.png');
     frame.appendChild(img);
 
     let caption = document.createElement('div');
     caption.innerText = 'Album';
-    div.appendChild(caption);    
+    albumEntry.appendChild(caption);    
 }
 
 //populate most played list
@@ -84,21 +84,20 @@ let mostPlayedCarousel = document.getElementById('most-played');
 mostPlayedCarousel.className = 'main-carousel';
 mostPlayedCarousel.setAttribute('data-flickity', '{"pageDots": false, "freeScroll": true, "cellAlign": "left", "contain": true, "prevNextButtons": false}');
 for (var i = 0; i < 20; i++) {
-    let div = document.createElement('div'); 
-    div.className = 'carousel-cell';
+    let albumEntry = document.createElement('a'); 
+    albumEntry.className = 'carousel-cell album-entry selectable';
+    mostPlayedCarousel.appendChild(albumEntry);
 
     let frame = document.createElement('div'); 
-    frame.className = 'tile-frame';
-    div.appendChild(frame);
+    frame.className = 'album-frame';
+    albumEntry.appendChild(frame);
 
     let img = document.createElement('img'); 
-    img.className = 'tile-img';
+    img.className = 'album-img';
     img.setAttribute('src', '../media/AlbumDefault.png');
     frame.appendChild(img);
 
     let caption = document.createElement('div');
     caption.innerText = 'Album';
-    div.appendChild(caption);
-
-    mostPlayedCarousel.appendChild(div);
+    albumEntry.appendChild(caption);
 }

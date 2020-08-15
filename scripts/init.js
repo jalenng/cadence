@@ -1,4 +1,4 @@
-const WindowButton = require('./scripts/windowbtn.js');
+const WindowButtons = require('./scripts/window-buttons.js');
 const openAboutWindow = require('about-window').default;
 const join = require('path').join;
 
@@ -45,11 +45,11 @@ const menuTemplate = [
 		submenu: [
 			{
 				role: 'zoomin',
-				accelerator: 'CmdOrCtrl+numadd'
+				accelerator: 'CmdOrCtrl+='
 			},
 			{
 				role: 'zoomout',
-				accelerator: 'CmdOrCtrl+numsub'
+				accelerator: 'CmdOrCtrl+-'
 			},
 			{
 				role: 'resetzoom',
@@ -60,7 +60,11 @@ const menuTemplate = [
 				role: 'togglefullscreen',
 				accelerator: 'Alt+Enter'
 			},
-			{role: 'reload'},
+			{
+				label: 'Reload (for debugging purposes)',
+				role: 'reload',
+				accelerator: 'CmdOrCtrl+Shift+R'
+			},
 		]
 	},
 	{

@@ -48,9 +48,7 @@ function openFile() {
 			{name: 'WebM Files', 
 				extensions: ['webm']},
 			{name: 'FLAC Files', 
-				extensions: ['flac']},
-			{name: 'All Files', 
-				extensions: ['*']}
+				extensions: ['flac']}
 		],
 		properties: ['openFile', 'multiSelections']
 	}
@@ -60,6 +58,10 @@ function openFile() {
 			for (var i = 0; i < result.filePaths.length; i++) {
 				PlayerModel.load(result.filePaths[i]);
 			}
+			if (result.filePaths.length == 1)
+				M.toast({html: result.filePaths.length + ' track queued'})
+			else 
+				M.toast({html: result.filePaths.length + ' tracks queued'})
 		}
 	}).catch(err => {
 		console.log(err)

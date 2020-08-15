@@ -103,7 +103,16 @@ body {
 
 /* home view, album view, and artist view specific */
 
-.tile-frame {
+.album-entry {
+    display: inline;
+    border-radius: 4px;
+    padding: 6px;
+    margin: 5px;
+    /* background-color: var(--element-color); */
+    transition-duration: 0.1s;
+}
+
+.album-frame {
     border-radius: 6px;
 	background-color: var(--tile-frame-color);
 	vertical-align: center;
@@ -113,24 +122,46 @@ body {
     margin-bottom: 10px
 }
 
-.tile-img {
+.album-img {
     padding: 0px;
     width: 100%;
     height: 100%;
 }
 
-.flexbox {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.album-entry {
+.artist-entry {
     display: inline;
     border-radius: 4px;
     padding: 6px;
     margin: 5px;
-    background-color: var(--element-color);
+    /* background-color: var(--element-color); */
     transition-duration: 0.1s;
+}
+
+.artist-frame {
+    border-radius: 100%;
+	background-color: var(--tile-frame-color);
+	vertical-align: center;
+	width: 160px;
+	height: 160px;
+    padding: 4px;
+    margin-bottom: 10px
+}
+
+.artist-img {
+    padding: 0px;
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.artist-name {
+    width: 100%;
+    text-align: center;
+}
+
+.flexbox {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* song-view specific */
