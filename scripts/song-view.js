@@ -41,15 +41,3 @@ for (var i = 0; i < 26; i++) {
         trackEntry.appendChild(trackEntryDuration);
     }
 }
-
-//populate indexed list
-// let indices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-let indexedList = document.getElementById('indexed-list');
-for (var i = 0; i < 26; i++) {
-    let letter = (i+10).toString(36);
-    let indexButton = document.createElement('a');
-    indexButton.className = 'selectable grayed';
-    indexButton.href = '#' + letter;
-    indexButton.innerText = letter.toUpperCase();
-    indexedList.appendChild(indexButton);
-}
