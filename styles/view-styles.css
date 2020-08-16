@@ -4,8 +4,13 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    padding: 0px 80px 0px 80px;
+html, body {
+    height: 100%;
+}
+
+#parallax-background div img {
+    background-position: center;
+    filter: blur(2px) brightness(50%);
 }
 
 /* selectables */
@@ -66,7 +71,7 @@ body {
 
 .main-container {
     margin: auto;
-    padding-bottom: 112px;
+    padding: 0px 80px 112px 80px;
     width: 100%;
     max-width: 1320px;
 }

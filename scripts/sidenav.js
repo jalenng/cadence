@@ -8,20 +8,20 @@ let buttonProperties = [
         href: 'home-view.html'
     },
     {
-        viewName: 'song',
+        viewName: 'songs',
         title: 'Songs',
         icon: 'music_note',
         href: 'song-view.html'
     },
     {
-        viewName: 'album',
-        title: 'Album',
+        viewName: 'albums',
+        title: 'Albums',
         icon: 'album',
         href: 'album-view.html'
     },
     {
-        viewName: 'artist',
-        title: 'Artist',
+        viewName: 'artists',
+        title: 'Artists',
         icon: 'person',
         href: 'artist-view.html'
     },
@@ -35,11 +35,12 @@ let buttonProperties = [
 
 for (var i = 0; i < buttonProperties.length; i++) {
     let sidenavButton = document.createElement('a');
-    sidenavButton.className = 'selectable';
+    sidenavButton.className = 'selectable tooltipped';
     sidenavButton.className += 
         (viewID == buttonProperties[i].viewName) ? '' : ' grayed';
-
-    sidenavButton.title = buttonProperties[i].title;
+    sidenavButton.setAttribute('data-position', 'right');
+    sidenavButton.setAttribute('data-tooltip', buttonProperties[i].title);
+    //sidenavButton.title = buttonProperties[i].title;
     sidenavButton.href = buttonProperties[i].href;
     sidenav.appendChild(sidenavButton);
 
@@ -48,3 +49,5 @@ for (var i = 0; i < buttonProperties.length; i++) {
     sidenavIcon.innerText = buttonProperties[i].icon;
     sidenavButton.appendChild(sidenavIcon);
 }
+
+M.AutoInit();
